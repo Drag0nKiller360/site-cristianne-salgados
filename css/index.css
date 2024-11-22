@@ -1,0 +1,64 @@
+/* Custom styles */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+}
+
+.blog-post {
+    margin-bottom: 4rem;
+    text-align: center;
+}
+
+.blog-post p, h2{
+    text-align: left;
+}
+
+.blog-post-title {
+    margin-bottom: .25rem;
+    font-size: 2.5rem;
+}
+
+.blog-footer {
+    padding: 2.5rem 0;
+    color: #999;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-top: .05rem solid #e5e5e5;
+}
+
+.blog-footer p:last-child {
+    margin-bottom: 0;
+}
+
+.hero h2 {
+    font-family: Quicksand;
+    font-size: 56px;
+    color: #FE3434;
+    display: inline;
+}
+
+#amarelo {
+    color: #fdd835;
+}
+
+.services h3 {
+    font-size: 24px;
+    color: #ff6347;
+    margin-bottom: 20px;
+}
+
+.about h2,
+.about h3 {
+    font-size: 28px;
+    color: #fff;
+}
+
+.about p,
+.about ul {
+    font-size: 16px;
+    color: #ccc;
+}

@@ -1,0 +1,41 @@
+/* Custom styles */
+.logo {
+    font-size: 28px;
+    color: #000;
+}
+
+.search-box input {
+    border-radius: 5px;
+}
+
+.search-box button {
+    border-radius: 5px;
+}
+
+.card {
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    font-size: 16px;
+    color: #333;
+}
+
+.order-item {
+    font-size: 14px;
+    color: #333;
+}
+
+.order-summary {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #331a0d;
+    color: #fff;
+}
