@@ -120,7 +120,9 @@ main h1 {
 
 /* Responsividade */
 @media (max-width: 768px) {
-  header, nav ul {
+
+  header,
+  nav ul {
     flex-direction: column;
     text-align: center;
   }
@@ -130,9 +132,23 @@ main h1 {
     text-align: center;
   }
 }
-.detalhes{
-    display:flex;
+
+.detalhes {
+  display: flex;
 }
-.dh{
-    padding: 5px;
+
+.dh {
+  padding: 5px;
+}
+
+.blog-footer {
+  padding: 2.5rem 0;
+  color: #999;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-top: .05rem solid #e5e5e5;
+}
+
+.blog-footer p:last-child {
+  margin-bottom: 0;
 }

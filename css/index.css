@@ -13,7 +13,8 @@ h6 {
     text-align: center;
 }
 
-.blog-post p, h2{
+.blog-post p,
+h2 {
     text-align: left;
 }
 
@@ -61,4 +62,8 @@ h6 {
 .about ul {
     font-size: 16px;
     color: #ccc;
+}
+
+nav ul .active {
+    font-weight: bold;
 }
