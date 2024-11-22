@@ -1,4 +1,8 @@
 /* Custom styles */
+nav ul .active {
+    font-weight: bold;
+}
+
 .logo {
     font-size: 28px;
     color: #000;
@@ -33,9 +37,14 @@
     border-radius: 5px;
 }
 
-footer {
+.blog-footer {
+    padding: 2.5rem 0;
+    color: #999;
     text-align: center;
-    padding: 20px;
-    background-color: #331a0d;
-    color: #fff;
+    background-color: #f9f9f9;
+    border-top: .05rem solid #e5e5e5;
+}
+
+.blog-footer p:last-child {
+    margin-bottom: 0;
 }
