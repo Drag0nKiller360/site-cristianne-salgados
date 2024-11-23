@@ -1,23 +1,36 @@
-body {
-  font-family: Arial, sans-serif;
+/* Reset básico */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body { 
+  font-family: Arial, sans-serif;
   background: #f9f9f9;
 }
 
 .container {
+  margin-top: 80px;
   max-width: 1200px;
   margin: auto;
   padding: 20px;
 }
 
 header {
+  margin: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: #fff;
   padding: 10px 20px;
   border-bottom: 1px solid #ddd;
+  box-sizing: border-box;
+}
+
+header h1 {
+  margin: 0;
+  padding: 0;
 }
 
 .logo {
@@ -42,7 +55,7 @@ header {
 }
 
 nav {
-  margin-top: 20px;
+  margin-top: 0; /* Ajustado */
   background: #fff;
   padding: 10px;
 }
