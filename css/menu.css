@@ -55,30 +55,41 @@ nav ul .active {
     padding: 1rem;
 }
 
-#filtro-todos{
+.btn-group{
+    margin-bottom: 1rem;
+}
+
+input[type='radio'][name='buttonGroup'] { display:none; }
+
+label {
+  display:inline-block;
+  padding:3px;
+  color: #A9A9A9;
+  border:1px solid #e0e0e0;
+  border-radius:3px;
+  background-color:#F0F0F0;
+  width:8rem;
+  text-align:center;
+}
+
+label:hover {
+    background-color: #c0c0c0;
+    color: #d3d3d3;
+    cursor: pointer;
+}
+
+input[type='radio'][name='buttonGroup']:checked + label { 
     background-color: #4A5C2F;
     color: #ddd;
     border: none;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 }
 
-#filtro-todos:hover{
+input[type='radio'][name='buttonGroup']:checked:hover + label { 
     background-color: #324417;
     color: #f1f1f1;
-}
-
-#filtro-fritos, #filtro-forno, #filtro-outros{
-    background-color: #D9D9D9;
-    color: #A9A9A9;
-    border: none;
-    padding-left: 1rem;
-    padding-right: 1rem;
-}
-
-#filtro-fritos:hover, #filtro-forno:hover, #filtro-outros:hover{
-    background-color: #c0c0c0;
-    color: #d3d3d3;
+    cursor: pointer;
 }
 
 .order-item {
@@ -112,10 +123,6 @@ h4{
     font-size: 30px;
     margin-bottom: 20px;
     
-}
-
-#id{
-    text-align: right;
 }
 
 #btn-revisar{
