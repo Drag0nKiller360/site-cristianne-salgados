@@ -6,7 +6,7 @@ function check() {
 var tds = document.querySelectorAll('#produtos h5[data-tipo]');
 document.querySelector('.btn-group').addEventListener('click', function(e) {
     var tipo = e.target.id;
-    
+
     if(tipo != 'container-filtros'){
         for (var i = 0; i < tds.length; i++) {
         
@@ -21,3 +21,14 @@ document.querySelector('.btn-group').addEventListener('click', function(e) {
         }
     }
 });
+
+document.querySelectorAll('.card img').forEach(image =>{
+    image.onclick = () =>{
+        document.querySelector('.products-preview').style.display = 'block';
+        document.querySelector('.preview img').src = image.getAttribute('src');
+    }  
+})
+
+document.querySelector('.preview span').onclick =  () =>{
+    document.querySelector('.products-preview').style.display = 'none';
+}

@@ -264,3 +264,43 @@ h4{
   font-weight: bold;
   color: #333;
 }
+
+
+/*POP-UP PRODUTO*/
+.products-preview{
+    position: fixed;
+    top: 0; 
+    left: 0;
+    background: rgba(0,0,0,.9);
+    height:100%;
+    width:100%;
+    z-index:100%;
+    display: none;
+}
+
+.preview{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border:5px solid #fff;
+    object-fit: cover;
+}
+
+.preview span{
+    position: absolute;
+    top: 0px; right: 10px;
+    font-size: 40px;
+    font-weight: bolder;
+    color: #fff;
+    cursor:pointer;
+    z-index: 100;
+}
+
+@media (max-width:500px){
+    .preview img{
+        width:95%;
+    }
+}
+
+/*FIM POP-UP PRODUTO*/
