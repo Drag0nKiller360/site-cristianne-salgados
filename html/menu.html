@@ -134,28 +134,36 @@
             </div>
 
             <!-- Order Summary -->
+             
             <div id="container-pedido" class="col-md-4 py-4 bg-light">
                 <h4 class="mb-3">PEDIDO #<span style="float:right;">12564878</span></h4>
 
                 <hr style="border-top: dashed 2px;" />
 
                 <!-- Order Items -->
-                <div class="order-item d-flex justify-content-between align-items-center mb-2">
-                    <span>Coxinha de Frango</span>
-                    <span>Quantidade: 100</span>
-                    <span>R$70,00</span>
-                </div>
+
+                <!--Antigo produto pedido
+                    <div class="order-item d-flex justify-content-between align-items-center mb-2">
+                        <span>Coxinha de Frango</span>
+                        <span>Quantidade: 100</span>
+                        <span>R$70,00</span>
+                    </div>
+                -->
+                
                 <div class="order-item d-flex justify-content-between align-items-center mb-2">
                     <span>Risole de Carne</span>
-                    <span>Quantidade: 50</span>
+                    <div class="quantity-container">
+                        <p class="label">QUANTIDADE</p>
+                        <div class="number-input">
+                            
+                            <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
+                            <input class="quantity" min="0" name="quantity" value="1" type="number">
+                            <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                        </div>
+                    </div>
                     <span>R$35,00</span>
                 </div>
-                <div class="order-item d-flex justify-content-between align-items-center mb-2">
-                    <span>Pastel de Carne</span>
-                    <span>Quantidade: 25</span>
-                    <span>R$17,50</span>
-                </div>
-
+                  
                 <!-- Order Summary -->
                 <hr style="border-top: dashed 2px;" />
 
