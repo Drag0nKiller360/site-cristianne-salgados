@@ -32,11 +32,17 @@ document.querySelectorAll('.card').forEach(card =>{
         document.querySelector('.preview img').src = img.getAttribute('src');
         document.querySelector('.preview h3').textContent = nome.textContent;
         document.querySelector('.preview .preco').textContent = preco.textContent;
+
+        const cabecalho = document.getElementById("cabecalho");
+        cabecalho.className = "navbar bg-body-tertiary";
+
     });
 })
 
 document.querySelector('.preview span').onclick =  () =>{
     document.querySelector('.products-preview').style.display = 'none';
+    const cabecalho = document.getElementById("cabecalho");
+    cabecalho.className = "navbar bg-body-tertiary fixed-top";
 }
 
 function adicionarItem() {
@@ -81,4 +87,7 @@ function adicionarItem() {
 
     qtd_total_el.textContent = `${nova_qtd_total}`;
     preco_total_el.textContent = `R$${novo_preco_total.toFixed(2).replace(".",",")}`;
+
+    const cabecalho = document.getElementById("cabecalho");
+    cabecalho.className = "navbar bg-body-tertiary fixed-top";
 }
