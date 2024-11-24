@@ -156,28 +156,31 @@
 
                 <hr style="border-top: dashed 2px;" />
 
-                <!-- Order Items -->
-
-                <!--Antigo produto pedido
+                <div id="itens_adicionados">
                     <div class="order-item d-flex justify-content-between align-items-center mb-2">
-                        <span>Coxinha de Frango</span>
-                        <span>Quantidade: 100</span>
-                        <span>R$70,00</span>
-                    </div>
-                -->
-                
-                <div class="order-item d-flex justify-content-between align-items-center mb-2">
-                    <span>Risole de Carne</span>
-                    <div class="quantity-container">
-                        <p class="label">QUANTIDADE</p>
-                        <div class="number-input">
-                            
-                            <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
-                            <input class="quantity" min="0" name="quantity" value="1" type="number">
-                            <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                        <span>Risole de Carne</span>
+                        <div class="quantity-container">
+                            <p class="label">QUANTIDADE</p>
+                            <div class="number-input">
+                                <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
+                                <input class="quantity" min="0" name="quantity" value="50" type="number">
+                                <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                            </div>
                         </div>
+                        <span>R$35,00</span>
                     </div>
-                    <span>R$35,00</span>
+                    <div class="order-item d-flex justify-content-between align-items-center mb-2">
+                        <span>Coxinha</span>
+                        <div class="quantity-container">
+                            <p class="label">QUANTIDADE</p>
+                            <div class="number-input">
+                                <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
+                                <input class="quantity" min="0" name="quantity" value="50" type="number">
+                                <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                            </div>
+                        </div>
+                        <span>R$35,00</span>
+                    </div>
                 </div>
                   
                 <!-- Order Summary -->
@@ -185,11 +188,11 @@
 
                 <div id="container-resumo">
                     <div id="container-subresumo-cima">
-                        <p>QUANTIDADE DE SALGADOS: <strong style="float:right;">300</strong></p>
-                        <p>TIPOS DIFERENTES SELECIONADOS: <strong style="float:right;">3</strong></p>
+                        <p>QUANTIDADE DE SALGADOS: <strong style="float:right;">100</strong></p>
+                        <p>TIPOS DIFERENTES SELECIONADOS: <strong style="float:right;">2</strong></p>
                     </div>
                     <div id="container-subresumo-baixo">
-                        <h4>TOTAL: <span style="float:right;">R$122,50</span></h4>
+                        <h4>TOTAL: <span style="float:right;">R$70,00</span></h4>
 
                         <div class="d-flex justify-content-around">
                             <button id="btn-cancelar" class="btn btn-danger btn-block">CANCELAR</button>
@@ -207,10 +210,18 @@
         <div class="preview" data-target="p-1">
             <span>&times;</span>
             <img src="../imgs/salgados/coxinha.jpeg" alt="">
-            <h3>Coxinha</h3>
-            <div class="preco">R$ 0,70</div>
+            <h3 id="nome_item">Coxinha</h3>
+            <div id="preco_item" class="preco">R$ 0,70</div>
+            <div class="quantity-container">
+                <p class="label">QUANTIDADE</p>
+                <div class="number-input">
+                    <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
+                    <input id="item_qtd" class="quantity" min="0" name="quantity" value="50" type="number">
+                    <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                </div>
+            </div>
             <div class="buttons">
-                <a href="#">ADICIONAR</a>
+                <button onclick="adicionarItem()">ADICIONAR</button>
             </div>
         </div>
     </div>
