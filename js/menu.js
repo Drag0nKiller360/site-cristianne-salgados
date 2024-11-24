@@ -66,15 +66,21 @@ document.querySelector('.remover span').onclick =  () =>{
 /*Fim fechar pop-ups*/
 
 function exibirPopUpLogin() {
+    const cabecalho = document.getElementById("cabecalho");
+    cabecalho.className = "navbar bg-body-tertiary";
     document.querySelector('.login-background').style.display = 'block';
 }
 
 function exibirPopUpCadastro() {
+    const cabecalho = document.getElementById("cabecalho");
     document.querySelector('.login-background').style.display = 'none';
     document.querySelector('.cadastro-background').style.display = 'block';
 }
 
 function exibirPopUpRemover() {
+    const cabecalho = document.getElementById("cabecalho");
+    cabecalho.className = "navbar bg-body-tertiary";
+
     document.querySelector('.remover-background').style.display = 'block';
 }
 
