@@ -156,43 +156,17 @@
 
                 <hr style="border-top: dashed 2px;" />
 
-                <div id="itens_adicionados">
-                    <div class="order-item d-flex justify-content-between align-items-center mb-2">
-                        <span>Risole de Carne</span>
-                        <div class="quantity-container">
-                            <p class="label">QUANTIDADE</p>
-                            <div class="number-input">
-                                <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
-                                <input class="quantity" min="0" name="quantity" value="50" type="number">
-                                <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
-                            </div>
-                        </div>
-                        <span>R$35,00</span>
-                    </div>
-                    <div class="order-item d-flex justify-content-between align-items-center mb-2">
-                        <span>Coxinha</span>
-                        <div class="quantity-container">
-                            <p class="label">QUANTIDADE</p>
-                            <div class="number-input">
-                                <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
-                                <input class="quantity" min="0" name="quantity" value="50" type="number">
-                                <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
-                            </div>
-                        </div>
-                        <span>R$35,00</span>
-                    </div>
-                </div>
+                <div id="itens_adicionados"></div>
                   
                 <!-- Order Summary -->
                 <hr style="border-top: dashed 2px;" />
 
                 <div id="container-resumo">
                     <div id="container-subresumo-cima">
-                        <p>QUANTIDADE DE SALGADOS: <strong style="float:right;">100</strong></p>
-                        <p>TIPOS DIFERENTES SELECIONADOS: <strong style="float:right;">2</strong></p>
+                        <p>QUANTIDADE DE SALGADOS: <strong id="total_qtd" style="float:right;">0</strong></p>
                     </div>
                     <div id="container-subresumo-baixo">
-                        <h4>TOTAL: <span style="float:right;">R$70,00</span></h4>
+                        <h4>TOTAL: <span id="total_preco" style="float:right;">R$0,00</span></h4>
 
                         <div class="d-flex justify-content-around">
                             <button id="btn-cancelar" class="btn btn-danger btn-block">CANCELAR</button>
