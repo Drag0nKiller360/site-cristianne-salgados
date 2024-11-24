@@ -63,14 +63,14 @@ nav ul .active {
 input[type='radio'][name='buttonGroup'] { display:none; }
 
 label {
-  display:inline-block;
-  padding:3px;
-  color: #A9A9A9;
-  border:1px solid #e0e0e0;
-  border-radius:3px;
-  background-color:#F0F0F0;
-  width:8rem;
-  text-align:center;
+    display:inline-block;
+    padding:3px;
+    color: #A9A9A9;
+    border:1px solid #e0e0e0;
+    border-radius:3px;
+    background-color:#F0F0F0;
+    width:8rem;
+    text-align:center;
 }
 
 label:hover {
@@ -131,6 +131,7 @@ h4{
 }
 
 #btn-revisar{
+    font-weight: bold;
     border-radius: 15px;
     border: none;
     background-color: #84C93D;
@@ -146,6 +147,7 @@ h4{
 }
 
 #btn-cancelar{
+    font-weight: bold;
     border-radius: 15px;
     border: none;
     background-color: #EC5A5A;
@@ -286,6 +288,14 @@ h4{
     transform: translate(-50%, -50%);
     border:5px solid #fff;
     object-fit: cover;
+    background-color: #fff;;
+    margin-top: 2em;
+    padding: .5em;
+    border-radius: 2em;
+
+    text-align: center;
+    justify-content:center;
+    align-items: center;
 }
 
 .preview span{
@@ -293,10 +303,38 @@ h4{
     top: 0px; right: 10px;
     font-size: 40px;
     font-weight: bolder;
-    color: #fff;
+    color: #383838;
     cursor:pointer;
     z-index: 100;
 }
+
+.preview .quantity-container{
+    margin: 0 auto;
+    text-align: center;
+}
+
+.preview #preco_item{
+    font-size: 2em;
+}
+
+.buttons-preview button{
+    border-radius: 15px;
+    border: none;
+    font-weight: bold;
+    margin-top: 1em;;
+    background-color: #84C93D;
+    padding-top: .8em;
+    padding-bottom: .8em;
+    padding-left: 2em;
+    padding-right: 2em;
+    color: #060D0F;
+}
+.buttons-preview button:hover{
+    border-radius: 15px;
+    background-color: #5b991e;
+    color: #dddddd;
+}
+    
 
 @media (max-width:500px){
     .preview img{

@@ -185,7 +185,6 @@
             <span>&times;</span>
             <img src="../imgs/salgados/coxinha.jpeg" alt="">
             <h3 id="nome_item">Coxinha</h3>
-            <div id="preco_item" class="preco">R$ 0,70</div>
             <div class="quantity-container">
                 <p class="label">QUANTIDADE</p>
                 <div class="number-input">
@@ -194,7 +193,10 @@
                     <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
                 </div>
             </div>
-            <div class="buttons">
+            
+            <div id="preco_item" class="preco">R$ 0,70</div>
+            
+            <div class="buttons-preview">
                 <button onclick="adicionarItem()">ADICIONAR</button>
             </div>
         </div>

@@ -40,6 +40,8 @@ document.querySelector('.preview span').onclick =  () =>{
 }
 
 function adicionarItem() {
+    document.querySelector('.products-preview').style.display = 'none';
+    
     const div1 = document.getElementById("itens_adicionados");
     const div2 = document.createElement("div");
 
