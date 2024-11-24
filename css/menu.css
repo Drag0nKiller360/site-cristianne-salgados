@@ -146,7 +146,7 @@ h4{
     color: #dddddd;
 }
 
-#btn-cancelar{
+#btn-remover{
     font-weight: bold;
     border-radius: 15px;
     border: none;
@@ -156,7 +156,7 @@ h4{
     color: #060D0F;
 }
 
-#btn-cancelar:hover{
+#btn-remover:hover{
     border-radius: 15px;
     background-color: #bb3535;
     color: #dddddd;
@@ -298,7 +298,7 @@ h4{
     align-items: center;
 }
 
-.preview span, .login span, .cadastro span{
+.preview span, .login span, .cadastro span, .remover span{
     position: absolute;
     top: 0px; right: 20px;
     font-size: 40px;
@@ -523,6 +523,77 @@ h4{
   .cadastro-button:hover {
     background-color: #6bb847;
   }
+/*Fim Cadastro-Popup*/
+
+/*Cancelar-PopUp*/
+.remover-background{
+    position: fixed;
+    top: 0; 
+    left: 0;
+    background: rgba(0,0,0,.9);
+    height:100%;
+    width:100%;
+    z-index:100%;
+    display: none;
+}
+
+.remover{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 24em;
+    transform: translate(-50%, -50%);
+    border:5px solid #fff;
+    object-fit: cover;
+    background-color: #fff;;
+    margin-top: 2em;
+    padding: .5em;
+    border-radius: 2em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+   
+    text-align: center;
+    justify-content:center;
+    align-items: center;
+}
+
+.titulo-popup{
+    margin-top: 10px;
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+.subtitulo-popup{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 14px;
+    font-weight: bold;
+    color: #000;
+    display: block;
+    margin-bottom: 5px;
+}
   
-/*Fim Login-Popup*/
+  .remover-button {
+    background-color: #EC5A5A;
+    color: #060D0F;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    width: 70%;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: background-color 0.3s;
+  }
+  
+  .remover-button:hover {
+    background-color: #bb3535;
+  }
+  
+/*Fim Cancelar-Popup*/
   

@@ -169,7 +169,7 @@
                         <h4>TOTAL: <span id="total_preco" style="float:right;">R$0,00</span></h4>
 
                         <div class="d-flex justify-content-around">
-                            <button id="btn-cancelar" onclick="removerTudo()" class="btn btn-danger btn-block">REMOVER TUDO</button>
+                            <button id="btn-remover" class="btn btn-danger btn-block" onclick="exibirPopUpRemover()">REMOVER TUDO</button>
                             <button id="btn-revisar" class="btn btn-success btn-block">REVISAR PEDIDO</button>
                         </div>
                     </div>
@@ -245,6 +245,21 @@
         </div>
     </div>
     <!--FIM-CADASTRAR-POPUP-->
+
+    <!--CANCELAR-POPUP-->
+    <div class="remover-background">
+        <div class="remover" data-target="p-1">
+            <span>&times;</span>
+            
+            <h1 class="titulo-popup">Tem certeza que deseja remover todos os itens do pedido?</h1>
+            <p class="subtitulo-popup">NÃO SERÁ POSSÍVEL RECUPERAR OS ITENS REMOVIDOS</p>
+            
+            <button type="submit" class="remover-button" onclick="removerTudo()">REMOVER TUDO</button>
+        </div>
+    </div>
+    <!--FIM-LOGIN-POPUP-->
+
+
 
     <!-- Footer -->
     <footer class="blog-footer">

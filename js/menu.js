@@ -57,6 +57,12 @@ document.querySelector('.cadastro span').onclick =  () =>{
     const cabecalho = document.getElementById("cabecalho");
     cabecalho.className = "navbar bg-body-tertiary fixed-top";
 }
+
+document.querySelector('.remover span').onclick =  () =>{
+    document.querySelector('.remover-background').style.display = 'none';
+    const cabecalho = document.getElementById("cabecalho");
+    cabecalho.className = "navbar bg-body-tertiary fixed-top";
+}
 /*Fim fechar pop-ups*/
 
 function exibirPopUpLogin() {
@@ -66,6 +72,10 @@ function exibirPopUpLogin() {
 function exibirPopUpCadastro() {
     document.querySelector('.login-background').style.display = 'none';
     document.querySelector('.cadastro-background').style.display = 'block';
+}
+
+function exibirPopUpRemover() {
+    document.querySelector('.remover-background').style.display = 'block';
 }
 
 function adicionarItem() {
@@ -135,6 +145,7 @@ function removerSalgado() {
 }
 
 function removerTudo() {
+    document.querySelector('.remover-background').style.display = 'none';
     const div = document.getElementById('itens_adicionados');
     const preco_total = document.getElementById("total_preco");
     const qtd_total = document.getElementById("total_qtd");
