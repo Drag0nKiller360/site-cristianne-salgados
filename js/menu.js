@@ -39,10 +39,33 @@ document.querySelectorAll('.card').forEach(card =>{
     });
 })
 
+/*Fechar pop-ups*/
 document.querySelector('.preview span').onclick =  () =>{
     document.querySelector('.products-preview').style.display = 'none';
     const cabecalho = document.getElementById("cabecalho");
     cabecalho.className = "navbar bg-body-tertiary fixed-top";
+}
+
+document.querySelector('.login span').onclick =  () =>{
+    document.querySelector('.login-background').style.display = 'none';
+    const cabecalho = document.getElementById("cabecalho");
+    cabecalho.className = "navbar bg-body-tertiary fixed-top";
+}
+
+document.querySelector('.cadastro span').onclick =  () =>{
+    document.querySelector('.cadastro-background').style.display = 'none';
+    const cabecalho = document.getElementById("cabecalho");
+    cabecalho.className = "navbar bg-body-tertiary fixed-top";
+}
+/*Fim fechar pop-ups*/
+
+function exibirPopUpLogin() {
+    document.querySelector('.login-background').style.display = 'block';
+}
+
+function exibirPopUpCadastro() {
+    document.querySelector('.login-background').style.display = 'none';
+    document.querySelector('.cadastro-background').style.display = 'block';
 }
 
 function adicionarItem() {

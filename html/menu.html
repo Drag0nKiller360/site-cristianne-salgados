@@ -18,7 +18,7 @@
     <header>
         <nav id="cabecalho" class="navbar bg-body-tertiary fixed-top" style="border-bottom: solid 1px #d6d6d657;">
             <div class="container-fluid">
-                <button class="btn btn-primary" style="background-color: #927CCA">Entrar / Log In</button>
+                <button class="btn btn-primary" style="background-color: #927CCA" onclick="exibirPopUpLogin()">Entrar / Log In</button>
                 <h1>Crissal</h1>
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
@@ -55,13 +55,13 @@
             <div id="produtos" class="col-md-7 py-4" style="margin-right: 1rem">
                 <!--FILTROS-->
                 <div class="d-flex justify-content-around btn-group" id="container-filtros">
-                    <input class="filtro" type="radio" name="buttonGroup" value="todos" id="todos"><label
+                    <input type="radio" name="buttonGroup" value="todos" id="todos"><label class="filtro"
                         for="todos">Todos</label>
-                    <input class="filtro" type="radio" name="buttonGroup" value="fritos" id="fritos"><label
+                    <input type="radio" name="buttonGroup" value="fritos" id="fritos"><label class="filtro"
                         for="fritos">Fritos</label>
-                    <input class="filtro" type="radio" name="buttonGroup" value="forno" id="forno"><label
+                    <input type="radio" name="buttonGroup" value="forno" id="forno"><label class="filtro"
                         for="forno">Forno</label>
-                    <input class="filtro" type="radio" name="buttonGroup" value="outros" id="outros"><label
+                    <input type="radio" name="buttonGroup" value="outros" id="outros"><label class="filtro"
                         for="outros">Outros</label>
                 </div>
 
@@ -193,7 +193,7 @@
                     <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
                 </div>
             </div>
-            
+
             <div id="preco_item" class="preco">R$ 0,70</div>
             
             <div class="buttons-preview">
@@ -201,6 +201,50 @@
             </div>
         </div>
     </div>
+
+    <!--LOGIN-POPUP-->
+    <div class="login-background">
+        <div class="login" data-target="p-1">
+            <span>&times;</span>
+            
+            <h1 class="titulo-popup">LOGIN</h1>
+            <form class="login-form">
+                <div class="form-group col-md-4 py-4 form-container">
+                        <label for="email">EMAIL:</label>
+                        <input type="email" id="email" name="email" placeholder="EX: CRISTIANNECOELHO@GMAIL.COM" required/>
+                        <label style="margin-top: 20px" for="password">SENHA</label>
+                        <input type="password" id="password" name="password" required />
+                </div>
+                <a href="#" class="forgot-password">ESQUECEU SUA SENHA?</a>
+                <button type="submit" class="login-button">FAZER LOGIN</button>
+                <a href="#" class="signup-link" onclick="exibirPopUpCadastro()">AINDA NÃO POSSUI UM LOGIN? CADASTRE-SE</a>
+            </form>
+        </div>
+    </div>
+    <!--FIM-LOGIN-POPUP-->
+
+    <!--CADASTRAR-POPUP-->
+    <div class="cadastro-background">
+        <div class="cadastro" data-target="p-1">
+            <span>&times;</span>
+            
+            <h1 class="titulo-popup">CADASTRE-SE</h1>
+            <form class="cadastro-form">
+                <div class="form-group col-md-4 py-4 form-container">
+                        <label for="email">EMAIL:</label>
+                        <input type="email" id="email" name="email" placeholder="EX: CRISTIANNECOELHO@GMAIL.COM" required/>
+                        <label style="margin-top: 20px" for="nome">NOME:</label>
+                        <input type="nome" id="nome" name="nome" placeholder="EX: CRISTIANNE COELHO" required/>
+                        <label style="margin-top: 20px" for="celular">CELULAR:</label>
+                        <input type="celular" id="celular" name="celular" placeholder="(XX) XXXXX-XXXX" required/>
+                        <label style="margin-top: 20px" for="password">SENHA</label>
+                        <input type="password" id="password" name="password" required />
+                </div>
+                <button type="submit" class="cadastro-button">CADASTRAR</button>
+            </form>
+        </div>
+    </div>
+    <!--FIM-CADASTRAR-POPUP-->
 
     <!-- Footer -->
     <footer class="blog-footer">
