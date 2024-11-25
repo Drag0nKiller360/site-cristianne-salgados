@@ -591,4 +591,23 @@ h4{
   }
   
 /*Fim Remover-Popup*/
+
+/*Icons*/
+
+    .list-inline-item a i {
+        color: #000; /* Cor padrão dos ícones (preto) */
+        transition: color 0.3s; /* Efeito de transição ao passar o mouse */
+    }
+    .list-inline-item a i:hover {
+        color: #3f3b3c; /* Cor dos ícones ao passar o mouse (exemplo: Instagram) */
+    }
+    .list-inline-item a i.fa-instagram {
+        color: #2d2728; /* Cor fixa para o ícone do Instagram */
+    }
+    .list-inline-item a i.fa-whatsapp {
+        color: #2d2728; /* Cor fixa para o ícone do WhatsApp */
+    }
+
+
+
   
