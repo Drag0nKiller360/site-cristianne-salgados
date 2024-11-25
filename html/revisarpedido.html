@@ -205,9 +205,12 @@
             <p class="total-price">R$210,00</p>
             <form>
                 <div class="payment-methods">
-                    <button type="button" onclick="openPopup('dinheiro'); event.preventDefault();">Dinheiro</button>
-                    <button type="button" onclick="openPopup('cartao'); event.preventDefault();">Cartão</button>
-                    <button type="button" onclick="openPopup('pix'); event.preventDefault();">Pix</button>
+                    <input type="radio" name="buttonGroup" value="dinheiro" id="dinheiro"><label class="pagamento"
+                        for="dinheiro">Dinheiro</label>
+                    <input type="radio" name="buttonGroup" value="cartao" id="cartao"><label class="pagamento"
+                        for="cartao">Cartão</label>
+                    <input type="radio" name="buttonGroup" value="pix" id="pix"><label class="pagamento"
+                        for="pix">Pix</label>
                 </div>
                 
     
@@ -235,8 +238,8 @@
                     <label>Email:</label>
                     <input type="email" class="form-control" placeholder="Ex: cristiannecoelho@gmail.com">
                 </div>
-                <button class="btn btn-success mt-3">Ir para o Pagamento</button>
             </form>
+            <button class="btn btn-success mt-3" onclick="exibirPopUpPagamento()">Ir para o Pagamento</button>
         </div>
     </div>
 
@@ -277,7 +280,7 @@
         </div>
         <div class="popup-content">
             <p>Escaneie o QR Code ou copie o código abaixo:</p>
-            <img src="qr-code-placeholder.png" alt="QR Code" style="width: 150px; height: 150px; margin-bottom: 10px;">
+            
             <input type="text" value="654984684654...XYZ" readonly
                 style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;">
             <button onclick="finalizeOrder()">Finalizar Pedido</button>

@@ -13,7 +13,6 @@ document.querySelector('.btn-group').addEventListener('click', function (e) {
             var tr = tds[i].closest('.col-md-4');
 
             if (tipo != 'todos') {
-
                 tr.style.display = tipo == tds[i].dataset.tipo || !tipo ? '' : 'none';
             } else {
                 tr.style.display = '';
