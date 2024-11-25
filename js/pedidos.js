@@ -11,28 +11,34 @@ function redirecionar(pagina) {
 
 // Função para abrir as pop-ups
 function openPopup(type) {
-    document.getElementById('popup-overlay').style.display = 'block';
-    document.getElementById(`popup-${type}`).style.display = 'block';
+    const cabecalho = document.getElementById("cabecalho");
+    cabecalho.className = "navbar bg-body-tertiary";
+    document.querySelector(`.${type}-background`).style.display = 'block';
 }
 
+//Função para exibir a pop-up correta
 function exibirPopUpPagamento() {
     if(document.getElementById("dinheiro").checked){
         openPopup('dinheiro');
     }else if(document.getElementById("cartao").checked){
         openPopup('cartao');
     }else if(document.getElementById("pix").checked){
-        openPopup('pix')
+        openPopup('pix');
     }
 }
 
 // Função para fechar as pop-ups
-function closePopup() {
-    document.getElementById('popup-overlay').style.display = 'none';
-    document.querySelectorAll('.popup').forEach(popup => popup.style.display = 'none');
+function closePopup(type) {
+    document.querySelector(`.${type}-background`).style.display = 'none';
+    const cabecalho = document.getElementById("cabecalho");
+    cabecalho.className = "navbar bg-body-tertiary fixed-top";
 }
 
 // Função para finalizar o pedido
-function finalizeOrder() {
-    alert('Pedido finalizado com sucesso!');
-    closePopup();
+function finalizarPedido(type) {
+    document.querySelector(`.agradecimento-background`).style.display = 'block';
+    document.querySelector(`.${type}-background`).style.display = 'none';
+    
+    const cabecalho = document.getElementById("cabecalho");
+    cabecalho.className = "navbar bg-body-tertiary";
 }

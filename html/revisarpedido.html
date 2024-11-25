@@ -17,104 +17,6 @@
 <body>
     <script src="../js/pedidos.js" defer></script>
 
-    <style>
-        /* Estilos das pop-ups */
-        .popup-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 999;
-            display: none;
-        }
-
-        .popup {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 350px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            z-index: 1000;
-            display: none;
-        }
-
-        .popup-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .popup-header h3 {
-            margin: 0;
-            font-size: 18px;
-            color: #333;
-        }
-
-        .popup-header .close {
-            cursor: pointer;
-            font-size: 20px;
-            color: #333;
-        }
-
-        .popup-content {
-            text-align: center;
-        }
-
-        .popup-content p {
-            margin: 10px 0;
-            color: #555;
-        }
-
-        .popup-content button {
-            margin-top: 15px;
-            padding: 10px 20px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .popup-content button:hover {
-            background-color: #218838;
-        }
-
-        /* Botão para cada forma de pagamento */
-        .btn {
-            padding: 10px 15px;
-            margin-top: 10px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
-        }
-
-        .btn-secondary {
-            background-color: #6c757d;
-            color: #fff;
-        }
-
-        .btn-secondary:hover {
-            background-color: #5a6268;
-        }
-
-        .btn-danger {
-            background-color: #dc3545;
-            color: #fff;
-        }
-
-        .btn-danger:hover {
-            background-color: #c82333;
-        }
-    </style>
-
     <!-- Header -->
     <header>
         <nav id="cabecalho" class="navbar bg-body-tertiary fixed-top" style="border-bottom: solid 1px #d6d6d657;">
@@ -196,7 +98,7 @@
             </div>
             <br>
             <div class="buttons">
-                <button class="cancel" onclick="redirecionar('menu.html')">Cancelar Pedido</button>
+                <button id="btn-cancelar" onclick="openPopup('cancelar')">Cancelar Pedido</button>
             </div>
         </div>
         <!-- Formulário lateral -->
@@ -239,53 +141,83 @@
                     <input type="email" class="form-control" placeholder="Ex: cristiannecoelho@gmail.com">
                 </div>
             </form>
-            <button class="btn btn-success mt-3" onclick="exibirPopUpPagamento()">Ir para o Pagamento</button>
+            <button class="btn-pagamento mt-3" onclick="exibirPopUpPagamento()">Ir para o Pagamento</button>
         </div>
     </div>
 
-    <!-- Overlay para fundo escuro -->
-    <div class="popup-overlay" id="popup-overlay"></div>
-
-    <!-- Pop-up Dinheiro -->
-    <div class="popup" id="popup-dinheiro">
-        <div class="popup-header">
-            <h3>Pagamento em Dinheiro</h3>
-            <span class="close" onclick="closePopup()">×</span>
-        </div>
-        <div class="popup-content">
-            <p>Vai precisar de troco? Informe o valor:</p>
-            <input type="text" placeholder="R$150,00"
-                style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;">
-            <button onclick="finalizeOrder()">Finalizar Pedido</button>
-        </div>
-    </div>
-
-    <!-- Pop-up Cartão -->
-    <div class="popup" id="popup-cartao">
-        <div class="popup-header">
-            <h3>Pagamento com Cartão</h3>
-            <span class="close" onclick="closePopup()">×</span>
-        </div>
-        <div class="popup-content">
-            <p>Por favor, leve seu cartão no momento da retirada.</p>
-            <button onclick="finalizeOrder()">Finalizar Pedido</button>
-        </div>
-    </div>
-
-    <!-- Pop-up PIX -->
-    <div class="popup" id="popup-pix">
-        <div class="popup-header">
-            <h3>Pagamento por PIX</h3>
-            <span class="close" onclick="closePopup()">×</span>
-        </div>
-        <div class="popup-content">
-            <p>Escaneie o QR Code ou copie o código abaixo:</p>
+    <!--CANCELAR-POPUP-->
+    <div class="cancelar-background">
+        <div class="cancelar" data-target="p-1">
+            <span onclick="closePopup('cancelar')">&times;</span>
             
-            <input type="text" value="654984684654...XYZ" readonly
-                style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;">
-            <button onclick="finalizeOrder()">Finalizar Pedido</button>
+            <h1 class="titulo-popup" style="margin-bottom: .8em;">Tem certeza que quer cancelar o pedido?</h1>
+            <p class="subtitulo-popup">APÓS O CANCELAMENTO VOCÊ SERÁ REDIRECIONADO À TELA DE MENU</p>
+            
+            <button type="submit" class="cancelar-button" onclick="redirecionar('menu.html')">CANCELAR</button>
         </div>
     </div>
+    <!--FIM-CANCELAR-POPUP-->
+
+    <!--AGRADECIMENTO-POPUP-->
+    <div class="agradecimento-background">
+        <div class="agradecimento" data-target="p-1">
+            
+            <h1 class="titulo-popup" style="margin-bottom: .8em;">Obrigado por comprar com a gente!</h1>
+            <p class="subtitulo-popup">VOCÊ RECEBERÁ UM EMAIL DE CONFIRMAÇÃO, NOSSA EQUIPE AGRADECE A PREFERÊNCIA!</p>
+            
+            <button type="submit" class="agradecimento-button" onclick="redirecionar('index.html')">VOLTAR AO INÍCIO</button>
+        </div>
+    </div>
+    <!--FIM-AGRADECIMENTO-POPUP-->
+
+    <!--DINHEIRO-POPUP-->
+    <div class="dinheiro-background">
+        <div class="dinheiro" data-target="p-1">
+            <span onclick="closePopup('dinheiro')">&times;</span>
+            
+            <h1 class="titulo-popup">Pagamento em Dinheiro</h1>
+            <p class="subtitulo-popup">Vai precisar de troco? Informe o valor:</p>
+            <input class="input-popup" type="text" placeholder="R$150,00"
+                style="width: 80%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;">
+            <button type="submit" class="dinheiro-button" onclick="finalizarPedido('dinheiro')">Finalizar Pedido</button>
+        </div>
+    </div>
+    <!--FIM-DINHEIRO-POPUP-->
+
+    <!--CARTÃO-POPUP-->
+    <div class="cartao-background">
+        <div class="cartao" data-target="p-1">
+            <span onclick="closePopup('cartao')">&times;</span>
+            
+            <h1 class="titulo-popup">Pagamento com Cartão</h1>
+
+            <img style="margin-bottom: 1em; margin-top: 1em;" src="../imgs/cartao.png" alt="máquina cartão" width="40%">
+
+            <p class="subtitulo-popup">Por favor, leve seu cartão no momento da retirada!</p>
+            
+            <button type="submit" class="cartao-button" onclick="finalizarPedido('cartao')">Finalizar Pedido</button>
+        </div>
+    </div>
+    <!--FIM-CARTÃO-POPUP-->
+
+    <!--PIX-POPUP-->
+    <div class="pix-background">
+        <div class="pix" data-target="p-1">
+            <span onclick="closePopup('pix')">&times;</span>
+
+            <h1 class="titulo-popup">Pagamento por PIX</h1>
+
+            <img style="margin-bottom: 1em; margin-top: 1em;" src="../imgs/qr-code.png" alt="qr-code" width="40%">
+        
+
+            <p class="subtitulo-popup">Escaneie o QR Code ou copie o código abaixo:</p>
+            <input class="input-popup" type="text" value="654984684654...XYZ" readonly>
+            
+            <button type="submit" class="pix-button" onclick="finalizarPedido('pix')">Finalizar Pedido</button>
+        </div>
+    </div>
+    <!--FIM-PIX-POPUP-->
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>

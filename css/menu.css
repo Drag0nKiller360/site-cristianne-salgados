@@ -382,16 +382,7 @@ h4{
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-  }
-  
-  .titulo-popup {
-    font-size: 24px;
-    margin-bottom: 20px;
-    font-weight: bold;
-    margin-top: 20px;
-    color: #14433D;
-  }
-  
+  }  
   
   .login-form {
     display: flex;
@@ -525,7 +516,7 @@ h4{
   }
 /*Fim Cadastro-Popup*/
 
-/*Cancelar-PopUp*/
+/*Remover-PopUp*/
 .remover-background{
     position: fixed;
     top: 0; 
@@ -558,7 +549,11 @@ h4{
 }
 
 .titulo-popup{
-    margin-top: 10px;
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #14433D;
     padding-left: 2em;
     padding-right: 2em;
 }
@@ -595,5 +590,5 @@ h4{
     background-color: #bb3535;
   }
   
-/*Fim Cancelar-Popup*/
+/*Fim Remover-Popup*/
   
