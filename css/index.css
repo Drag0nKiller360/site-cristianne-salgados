@@ -69,7 +69,6 @@ nav ul .active {
 }
 
 /*Icons*/
-
 .list-inline-item a i {
     color: #000; /* Cor padrão dos ícones (preto) */
     transition: color 0.3s; /* Efeito de transição ao passar o mouse */
