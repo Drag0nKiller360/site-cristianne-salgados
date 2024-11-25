@@ -71,7 +71,7 @@ nav ul .active {
 /*Icons*/
 .list-inline-item a i {
     color: #000; /* Cor padrão dos ícones (preto) */
-    transition: color 0.3s; /* Efeito de transição ao passar o mouse */
+    transition: color 0.1s; /* Efeito de transição ao passar o mouse */
 }
 .list-inline-item a i:hover {
     color: #3f3b3c; /* Cor dos ícones ao passar o mouse (exemplo: Instagram) */
