@@ -65,8 +65,8 @@
                     for="forno">Forno</label>
                 <input type="radio" name="buttonGroup" value="outros" id="outros"><label class="filtro"
                     for="outros">Outros</label>
-                <button id="btn-remover">REMOVER ITEM</button>
-                <button id="btn-revisar">ADICIONAR ITEM</button>
+                <button id="btn-remover" onclick="openPopup('remover-item')">REMOVER ITEM</button>
+                <button id="btn-revisar" onclick="openPopup('produto-adicionar')">ADICIONAR ITEM</button>
             </div>
 
             <div class="row">
@@ -145,27 +145,38 @@
         </div>
     </div>
 
-    <!--PREVIEW PRODUTOS-->
-    <div class="products-preview">
-        <div class="preview" data-target="p-1">
-            <span>&times;</span>
+    <!--EDITAR-PRODUTOS-POPUP-->
+    <div class="produto-editar-background">
+        <div class="produto-editar" data-target="p-1">
+            <span class="fechar" onclick="closePopup('produto-editar')">&times;</span>
             <img src="../imgs/salgados/coxinha.jpeg" alt="">
-            <h3 id="nome_item">Coxinha</h3>
-            <div class="quantity-container">
-                <p class="label">QUANTIDADE</p>
-                <div class="number-input">
-                    <button type="button"
-                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
-                    <input id="item_qtd" class="quantity" min="0" name="quantity" value="50" type="number">
-                    <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-                        class="plus"></button>
-                </div>
-            </div>
 
-            <div id="preco_item" class="preco">R$ 0,70</div>
+            <label>Nome do Produto:</label>
+            <input type="text" class="form-control nome-item">
+
+            <label>Preço do Produto:</label>
+            <input type="text" class="form-control preco-item">
 
             <div class="buttons-preview">
-                <button onclick="adicionarItem()">ADICIONAR</button>
+                <button>ADICIONAR</button>
+            </div>
+        </div>
+    </div>
+
+    <!--ADICIONAR-PRODUTOS-POPUP-->
+    <div class="produto-adicionar-background">
+        <div class="produto-adicionar" data-target="p-1">
+            <span class="fechar" onclick="closePopup('produto-adicionar')">&times;</span>
+            <img style="width: 40%" src="../imgs/salgados/sem-imagem.webp" alt="">
+
+            <label>Nome do Produto:</label>
+            <input type="text" class="form-control nome-item-adicionar">
+
+            <label>Preço do Produto:</label>
+            <input type="text" class="form-control preco-item-adicionar">
+
+            <div class="buttons-preview">
+                <button>ADICIONAR</button>
             </div>
         </div>
     </div>
@@ -173,7 +184,7 @@
     <!--LOGIN-POPUP-->
     <div class="login-background">
         <div class="login" data-target="p-1">
-            <span>&times;</span>
+            <span class="fechar" onclick="closePopup('login')">&times;</span>
 
             <h1 class="titulo-popup">LOGIN</h1>
             <form class="login-form">
@@ -195,7 +206,7 @@
     <!--CADASTRAR-POPUP-->
     <div class="cadastro-background">
         <div class="cadastro" data-target="p-1">
-            <span>&times;</span>
+            <span class="fechar" onclick="closePopup('cadastro')">&times;</span>
 
             <h1 class="titulo-popup">CADASTRE-SE</h1>
             <form class="cadastro-form">
@@ -215,20 +226,88 @@
     </div>
     <!--FIM-CADASTRAR-POPUP-->
 
-    <!--CANCELAR-POPUP-->
-    <div class="remover-background">
-        <div class="remover" data-target="p-1">
-            <span>&times;</span>
-
-            <h1 class="titulo-popup">Tem certeza que deseja remover todos os itens do pedido?</h1>
-            <p class="subtitulo-popup">NÃO SERÁ POSSÍVEL RECUPERAR OS ITENS REMOVIDOS</p>
-
-            <button type="submit" class="remover-button" onclick="removerTudo()">REMOVER TUDO</button>
+    <!--REMOVER-ITEM-POPUP-->
+    <div class="remover-item-background">
+        <div class="remover-item" data-target="p-1">
+            <span class="fechar" onclick="closePopup('remover-item')">&times;</span>
+            
+            <h1 class="titulo-popup">Realmente Deseja Remover <span class="qtd-itens">1</span> Item(s)?</h1>
+            <p class="subtitulo-popup">VOCÊ ESTÁ PRESTES A REMOVER UM ITEM DO CARDÁPIO, NOVOS CLIENTES NÃO PODERÃO COMPRAR O QUE FOR REMOVIDO</p>
+            
+            <button type="submit" class="remover-item-button">REMOVER ITENS</button>
         </div>
     </div>
-    <!--FIM-LOGIN-POPUP-->
+    <!--FIM-REMOVER-ITEM-POPUP-->
 
+    <!--CONFIRMAR-PEDIDO-POPUP-->
+    <div class="confirmar-pedido-background">
+        <div class="confirmar-pedido" data-target="p-1">
+            <span class="fechar" onclick="closePopup('confirmar-pedido')">&times;</span>
+            
+            <h1 class="titulo-popup">Pedido Confirmado!</h1>
+            <p class="subtitulo-popup">O PEDIDO FOI MOVIDO PARA ÁREA DE PEDIDOS APROVADOS</p>
+            
+            <button type="submit" class="confirmar-pedido-button">VOLTAR AO MENU</button>
+        </div>
+    </div>
+    <!--FIM-CONFIRMAR-PEDIDO-POPUP-->
 
+    <!--NEGAR-PEDIDO-POPUP-->
+    <div class="negar-pedido-background">
+        <div class="negar-pedido" data-target="p-1">
+            <span class="fechar" onclick="closePopup('negar-pedido')">&times;</span>
+            
+            <h1 class="titulo-popup">Realmente Deseja Negar o Pedido?</h1>
+            <p class="subtitulo-popup">VOCÊ SERÁ REDIRECIONADO PARA A TELA DE JUSTIFICATIVA</p>
+            
+            <button type="submit" class="negar-pedido-button">CANCELAR PEDIDO</button>
+        </div>
+    </div>
+    <!--FIM-NEGAR-PEDIDO-POPUP-->
+
+    <!--JUSTIFICATIVA-POPUP-->
+    <div class="justificativa-background">
+        <div class="justificativa" data-target="p-1">
+            <span class="fechar" onclick="closePopup('justificativa')">&times;</span>
+            
+            <h1 class="titulo-popup">Por Qual Motivo Este Pedido Foi Cancelado?</h1>
+            <p class="subtitulo-popup">ESSA JUSTIFICATIVA SERÁ ENVIADA AUTOMATICAMENTE PARA O EMAIL DO CLIENTE</p>
+            
+            <textarea class="form-control" id="texto-justificativa-popup" rows="5"></textarea>
+
+            <div class="d-flex justify-content-around">
+                <button type="submit" class="justificativa-cancelar-button">ENVIAR JUSTIFICATIVA</button>
+                <button type="submit" class="justificativa-voltar-button">VOLTAR</button>
+            </div>
+        </div>
+    </div>
+    <!--FIM-JUSTIFICATIVA-POPUP-->
+
+    <!--ENTREGAR-PEDIDO-POPUP-->
+    <div class="entregar-pedido-background">
+        <div class="entregar-pedido" data-target="p-1">
+            <span class="fechar" onclick="closePopup('entregar-pedido')">&times;</span>
+            
+            <h1 class="titulo-popup">Pedido Entregue!</h1>
+            <p class="subtitulo-popup">O PEDIDO FOI CONCLUÍDO COM SUCESSO E JÁ ESTÁ COM O CLIENTE</p>
+            
+            <button type="submit" class="entregar-pedido-button">VOLTAR AO MENU</button>
+        </div>
+    </div>
+    <!--FIM-ENTREGAR-PEDIDO-POPUP-->
+
+    <!--CANCELAR-PEDIDO-POPUP-->
+    <div class="cancelar-pedido-background">
+        <div class="cancelar-pedido" data-target="p-1">
+            <span class="fechar" onclick="closePopup('cancelar-pedido')">&times;</span>
+            
+            <h1 class="titulo-popup">Realmente Deseja Cancelar o Pedido?</h1>
+            <p class="subtitulo-popup">O PEDIDO JÁ FOI APROVADO ANTERIORMENTE, CANCELE APENAS SE NECESSÁRIO</p>
+            
+            <button type="submit" class="cancelar-pedido-button">CANCELAR PEDIDO</button>
+        </div>
+    </div>
+    <!--FIM-CANCELAR-PEDIDO-POPUP-->
 
     <!-- Footer -->
     <footer class="blog-footer">

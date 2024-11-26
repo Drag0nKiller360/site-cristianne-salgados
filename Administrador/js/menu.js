@@ -1,3 +1,4 @@
+//Função pra deixar um método de pagamento já marcado
 window.onload = check;
 function check() {
     document.getElementById("todos").checked = true;
@@ -7,7 +8,7 @@ var tds = document.querySelectorAll('#produtos h5[data-tipo]');
 document.querySelector('.btn-group').addEventListener('click', function (e) {
     var tipo = e.target.id;
 
-    if (tipo != 'container-filtros') {
+    if (tipo != 'container-filtros' && tipo != 'btn-revisar' && tipo != 'btn-remover') {
         for (var i = 0; i < tds.length; i++) {
 
             var tr = tds[i].closest('.col-md-4');
@@ -21,16 +22,18 @@ document.querySelector('.btn-group').addEventListener('click', function (e) {
     }
 });
 
+
+//Função pra editar card
 document.querySelectorAll('.card').forEach(card => {
     card.addEventListener('click', function (event) {
         const img = event.target.closest('.card').querySelector('img');
         const nome = event.target.closest('.card').querySelector('h5');
         const preco = event.target.closest('.card').querySelector('.preco');
 
-        document.querySelector('.products-preview').style.display = 'block';
-        document.querySelector('.preview img').src = img.getAttribute('src');
-        document.querySelector('.preview h3').textContent = nome.textContent;
-        document.querySelector('.preview .preco').textContent = preco.textContent;
+        document.querySelector('.produto-editar-background').style.display = 'block';
+        document.querySelector('.produto-editar img').src = img.getAttribute('src');
+        document.querySelector('.produto-editar .nome-item').value = nome.textContent;
+        document.querySelector('.produto-editar .preco-item').value = preco.textContent;
 
         const cabecalho = document.getElementById("cabecalho");
         cabecalho.className = "navbar bg-body-tertiary";
@@ -38,47 +41,30 @@ document.querySelectorAll('.card').forEach(card => {
     });
 })
 
-/*Fechar pop-ups*/
-document.querySelector('.preview span').onclick =  () =>{
-    document.querySelector('.products-preview').style.display = 'none';
-    const cabecalho = document.getElementById("cabecalho");
-    cabecalho.className = "navbar bg-body-tertiary fixed-top";
+// Função para redirecionar para outra página
+function redirecionar(pagina) {
+    window.location.href = pagina;
 }
 
-document.querySelector('.login span').onclick =  () =>{
-    document.querySelector('.login-background').style.display = 'none';
-    const cabecalho = document.getElementById("cabecalho");
-    cabecalho.className = "navbar bg-body-tertiary fixed-top";
-}
-
-document.querySelector('.cadastro span').onclick =  () =>{
-    document.querySelector('.cadastro-background').style.display = 'none';
-    const cabecalho = document.getElementById("cabecalho");
-    cabecalho.className = "navbar bg-body-tertiary fixed-top";
-}
-
-document.querySelector('.remover span').onclick =  () =>{
-    document.querySelector('.remover-background').style.display = 'none';
-    const cabecalho = document.getElementById("cabecalho");
-    cabecalho.className = "navbar bg-body-tertiary fixed-top";
-}
-/*Fim fechar pop-ups*/
-
-function exibirPopUpLogin() {
+// Função para abrir as pop-ups
+function openPopup(type) {
     const cabecalho = document.getElementById("cabecalho");
     cabecalho.className = "navbar bg-body-tertiary";
-    document.querySelector('.login-background').style.display = 'block';
+    document.querySelector(`.${type}-background`).style.display = 'block';
 }
 
-function exibirPopUpCadastro() {
+// Função para fechar as pop-ups
+function closePopup(type) {
+    document.querySelector(`.${type}-background`).style.display = 'none';
     const cabecalho = document.getElementById("cabecalho");
-    document.querySelector('.login-background').style.display = 'none';
-    document.querySelector('.cadastro-background').style.display = 'block';
+    cabecalho.className = "navbar bg-body-tertiary fixed-top";
 }
 
-function exibirPopUpRemover() {
+// Função para finalizar o pedido
+function finalizarPedido(type) {
+    document.querySelector(`.agradecimento-background`).style.display = 'block';
+    document.querySelector(`.${type}-background`).style.display = 'none';
+    
     const cabecalho = document.getElementById("cabecalho");
     cabecalho.className = "navbar bg-body-tertiary";
-
-    document.querySelector('.remover-background').style.display = 'block';
 }
