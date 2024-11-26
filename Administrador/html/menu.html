@@ -19,7 +19,8 @@
     <header>
         <nav id="cabecalho" class="navbar bg-body-tertiary fixed-top" style="border-bottom: solid 1px #d6d6d657;">
             <div class="container-fluid">
-                <button class="btn btn-primary" style="background-color: #927CCA" onclick="exibirPopUpLogin()">Entrar / Log In</button>
+                <button class="btn btn-primary" style="background-color: #927CCA" onclick="exibirPopUpLogin()">Entrar /
+                    Log In</button>
                 <h1>Crissal</h1>
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
@@ -34,7 +35,7 @@
                     <div class="offcanvas-body">
                         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                             <li class="nav-item">
-                                <a class="nav-link" href="index.html">Home</a>
+                                <a class="nav-link" href="novospedidos.html">Novos Pedidos</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="menu.html">Menu</a>
@@ -51,120 +52,92 @@
     <br>
 
     <div class="container" style="margin-top: 4rem;">
-        <div class="row">
-            <!-- Product Grid -->
-            <div id="produtos" class="col-md-7 py-4" style="margin-right: 1rem">
-                <!--FILTROS-->
-                <div class="d-flex justify-content-around btn-group" id="container-filtros">
-                    <input type="radio" name="buttonGroup" value="todos" id="todos"><label class="filtro"
-                        for="todos">Todos</label>
-                    <input type="radio" name="buttonGroup" value="fritos" id="fritos"><label class="filtro"
-                        for="fritos">Fritos</label>
-                    <input type="radio" name="buttonGroup" value="forno" id="forno"><label class="filtro"
-                        for="forno">Forno</label>
-                    <input type="radio" name="buttonGroup" value="outros" id="outros"><label class="filtro"
-                        for="outros">Outros</label>
-                </div>
 
-                <div class="row" id="scroll-div">
-
-                    <!--PRODUTOS-->
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img src="../imgs/salgados/coxinha.jpeg" class="card-img-top" alt="Coxinha de frango">
-                            <div class="card-body text-center">
-                                <h5 class="card-title" data-tipo="fritos">COXINHA DE FRANGO</h5>
-                                <h5 class="card-title"><span class="preco">R$ 0,70</span></h5>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img src="../imgs/salgados/pizza.jpeg" class="card-img-top" alt="Mini-pizza">
-                            <div class="card-body text-center">
-                                <h5 class="card-title" data-tipo="outros">MINI-PIZZA</h5>
-                                <h5 class="card-title"><span class="preco">R$ 1,00</span></h5>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img src="../imgs/salgados/barquinhoc.jpeg" class="card-img-top" alt="Barquinho de carne">
-                            <div class="card-body text-center">
-                                <h5 class="card-title" data-tipo="forno">BARQUINHO DE CARNE</h5>
-                                <h5 class="card-title"><span class="preco">R$ 0,70</span></h5>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img src="../imgs/salgados/barquinhof.jpeg" class="card-img-top" alt="Barquinho de frango">
-                            <div class="card-body text-center">
-                                <h5 class="card-title" data-tipo="forno">BARQUINHO DE FRANGO</h5>
-                                <h5 class="card-title"><span class="preco">R$ 0,70</span></h5>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img src="../imgs/salgados/pastel.jpeg" class="card-img-top" alt="Pastel tradicional">
-                            <div class="card-body text-center">
-                                <h5 class="card-title" data-tipo="fritos">PASTEL TRADICIONAL</h5>
-                                <h5 class="card-title"><span class="preco">R$ 0,70</span></h5>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img src="../imgs/salgados/empada.jpeg" class="card-img-top" alt="Empada de frango">
-                            <div class="card-body text-center">
-                                <h5 class="card-title" data-tipo="forno">EMPADA DE FRANGO</h5>
-                                <h5 class="card-title"><span class="preco">R$ 0,70</span></h5>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img src="../imgs/salgados/pastelforno.jpeg" class="card-img-top" alt="Pastel de forno">
-                            <div class="card-body text-center">
-                                <h5 class="card-title" data-tipo="forno">PASTEL DE FORNO</h5>
-                                <h5 class="card-title"><span class="preco">R$ 0,70</span></h5>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
+        <!-- Product Grid -->
+        <div id="produtos" style="margin-right: 1rem">
+            <!--FILTROS-->
+            <div class="d-flex justify-content-around btn-group" id="container-filtros">
+                <input type="radio" name="buttonGroup" value="todos" id="todos"><label class="filtro"
+                    for="todos">Todos</label>
+                <input type="radio" name="buttonGroup" value="fritos" id="fritos"><label class="filtro"
+                    for="fritos">Fritos</label>
+                <input type="radio" name="buttonGroup" value="forno" id="forno"><label class="filtro"
+                    for="forno">Forno</label>
+                <input type="radio" name="buttonGroup" value="outros" id="outros"><label class="filtro"
+                    for="outros">Outros</label>
+                <button id="btn-remover">REMOVER ITEM</button>
+                <button id="btn-revisar">ADICIONAR ITEM</button>
             </div>
 
-            <!-- Order Summary -->
-             
-            <div id="container-pedido" class="col-md-4 py-4 bg-light">
-                <h4 class="mb-3">PEDIDO #<span style="float:right;">12564878</span></h4>
+            <div class="row">
 
-                <hr style="border-top: dashed 2px;" />
-
-                <div id="itens_adicionados"></div>
-                  
-                <!-- Order Summary  -->
-                <hr style="border-top: dashed 2px;" />
-
-                <div id="container-resumo">
-                    <div id="container-subresumo-cima">
-                        <p>QUANTIDADE DE SALGADOS: <strong id="total_qtd" style="float:right;">0</strong></p>
+                <!--PRODUTOS-->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="../imgs/salgados/coxinha.jpeg" class="card-img-top" alt="Coxinha de frango">
+                        <div class="card-body text-center">
+                            <h5 class="card-title" data-tipo="fritos">COXINHA DE FRANGO</h5>
+                            <h5 class="card-title"><span class="preco">R$ 0,70</span></h5>
+                        </div>
                     </div>
-                    <div id="container-subresumo-baixo">
-                        <h4>TOTAL: <span id="total_preco" style="float:right;">R$0,00</span></h4>
+                </div>
 
-                        <div class="d-flex justify-content-around">
-                            <button id="btn-remover" class="btn btn-danger btn-block" onclick="exibirPopUpRemover()">REMOVER TUDO</button>
-                            <button id="btn-revisar" class="btn btn-success btn-block" onclick="redirecionar('revisarpedido.html')">REVISAR PEDIDO</button>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="../imgs/salgados/pizza.jpeg" class="card-img-top" alt="Mini-pizza">
+                        <div class="card-body text-center">
+                            <h5 class="card-title" data-tipo="outros">MINI-PIZZA</h5>
+                            <h5 class="card-title"><span class="preco">R$ 1,00</span></h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="../imgs/salgados/barquinhoc.jpeg" class="card-img-top" alt="Barquinho de carne">
+                        <div class="card-body text-center">
+                            <h5 class="card-title" data-tipo="forno">BARQUINHO DE CARNE</h5>
+                            <h5 class="card-title"><span class="preco">R$ 0,70</span></h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="../imgs/salgados/barquinhof.jpeg" class="card-img-top" alt="Barquinho de frango">
+                        <div class="card-body text-center">
+                            <h5 class="card-title" data-tipo="forno">BARQUINHO DE FRANGO</h5>
+                            <h5 class="card-title"><span class="preco">R$ 0,70</span></h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="../imgs/salgados/pastel.jpeg" class="card-img-top" alt="Pastel tradicional">
+                        <div class="card-body text-center">
+                            <h5 class="card-title" data-tipo="fritos">PASTEL TRADICIONAL</h5>
+                            <h5 class="card-title"><span class="preco">R$ 0,70</span></h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="../imgs/salgados/empada.jpeg" class="card-img-top" alt="Empada de frango">
+                        <div class="card-body text-center">
+                            <h5 class="card-title" data-tipo="forno">EMPADA DE FRANGO</h5>
+                            <h5 class="card-title"><span class="preco">R$ 0,70</span></h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="../imgs/salgados/pastelforno.jpeg" class="card-img-top" alt="Pastel de forno">
+                        <div class="card-body text-center">
+                            <h5 class="card-title" data-tipo="forno">PASTEL DE FORNO</h5>
+                            <h5 class="card-title"><span class="preco">R$ 0,70</span></h5>
                         </div>
                     </div>
                 </div>
@@ -181,14 +154,16 @@
             <div class="quantity-container">
                 <p class="label">QUANTIDADE</p>
                 <div class="number-input">
-                    <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
+                    <button type="button"
+                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
                     <input id="item_qtd" class="quantity" min="0" name="quantity" value="50" type="number">
-                    <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                    <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                        class="plus"></button>
                 </div>
             </div>
 
             <div id="preco_item" class="preco">R$ 0,70</div>
-            
+
             <div class="buttons-preview">
                 <button onclick="adicionarItem()">ADICIONAR</button>
             </div>
@@ -199,18 +174,19 @@
     <div class="login-background">
         <div class="login" data-target="p-1">
             <span>&times;</span>
-            
+
             <h1 class="titulo-popup">LOGIN</h1>
             <form class="login-form">
                 <div class="form-group col-md-4 py-4 form-container">
-                        <label for="email">EMAIL:</label>
-                        <input type="email" id="email" name="email" placeholder="EX: CRISTIANNECOELHO@GMAIL.COM" required/>
-                        <label style="margin-top: 20px" for="password">SENHA</label>
-                        <input type="password" id="password" name="password" required />
+                    <label for="email">EMAIL:</label>
+                    <input type="email" id="email" name="email" placeholder="EX: CRISTIANNECOELHO@GMAIL.COM" required />
+                    <label style="margin-top: 20px" for="password">SENHA</label>
+                    <input type="password" id="password" name="password" required />
                 </div>
                 <a href="#" class="forgot-password">ESQUECEU SUA SENHA?</a>
                 <button type="submit" class="login-button">FAZER LOGIN</button>
-                <a href="#" class="signup-link" onclick="exibirPopUpCadastro()">AINDA NÃO POSSUI UM LOGIN? CADASTRE-SE</a>
+                <a href="#" class="signup-link" onclick="exibirPopUpCadastro()">AINDA NÃO POSSUI UM LOGIN?
+                    CADASTRE-SE</a>
             </form>
         </div>
     </div>
@@ -220,18 +196,18 @@
     <div class="cadastro-background">
         <div class="cadastro" data-target="p-1">
             <span>&times;</span>
-            
+
             <h1 class="titulo-popup">CADASTRE-SE</h1>
             <form class="cadastro-form">
                 <div class="form-group col-md-4 py-4 form-container">
-                        <label for="email">EMAIL:</label>
-                        <input type="email" id="email" name="email" placeholder="EX: CRISTIANNECOELHO@GMAIL.COM" required/>
-                        <label style="margin-top: 20px" for="nome">NOME:</label>
-                        <input type="nome" id="nome" name="nome" placeholder="EX: CRISTIANNE COELHO" required/>
-                        <label style="margin-top: 20px" for="celular">CELULAR:</label>
-                        <input type="celular" id="celular" name="celular" placeholder="(XX) XXXXX-XXXX" required/>
-                        <label style="margin-top: 20px" for="password">SENHA</label>
-                        <input type="password" id="password" name="password" required />
+                    <label for="email">EMAIL:</label>
+                    <input type="email" id="email" name="email" placeholder="EX: CRISTIANNECOELHO@GMAIL.COM" required />
+                    <label style="margin-top: 20px" for="nome">NOME:</label>
+                    <input type="nome" id="nome" name="nome" placeholder="EX: CRISTIANNE COELHO" required />
+                    <label style="margin-top: 20px" for="celular">CELULAR:</label>
+                    <input type="celular" id="celular" name="celular" placeholder="(XX) XXXXX-XXXX" required />
+                    <label style="margin-top: 20px" for="password">SENHA</label>
+                    <input type="password" id="password" name="password" required />
                 </div>
                 <button type="submit" class="cadastro-button">CADASTRAR</button>
             </form>
@@ -243,10 +219,10 @@
     <div class="remover-background">
         <div class="remover" data-target="p-1">
             <span>&times;</span>
-            
+
             <h1 class="titulo-popup">Tem certeza que deseja remover todos os itens do pedido?</h1>
             <p class="subtitulo-popup">NÃO SERÁ POSSÍVEL RECUPERAR OS ITENS REMOVIDOS</p>
-            
+
             <button type="submit" class="remover-button" onclick="removerTudo()">REMOVER TUDO</button>
         </div>
     </div>
