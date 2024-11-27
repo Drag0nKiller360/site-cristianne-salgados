@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedidos - Crissal</title>
+    <!-- Bootstrap / CSS / Fonte -->
+    <link rel="stylesheet" href="../css/novospedidos.css">
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        .hidden {
+            display: none;
+        }
+
+        .toggle-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .toggle-button {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: #4c4e50;
+        }
+
+        .toggle-button:hover {
+            color: #0c0c0c;
+        }
+
+        .toggle-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .rotate-down {
+            transform: rotate(180deg);
+        }
+
+        .pedido {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+
+<body>
+    <!--Header starts here-->
+    <header>
+        <nav class="navbar bg-body-tertiary fixed-top">
+            <div class="container-fluid">
+                <h1>Crissal</h1>
+                <div class="search-bar">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                        aria-labelledby="offcanvasNavbarLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Crissal</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="novospedidos.html">Novos Pedidos</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="menu.html">Menu</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="pedidos.html">Pedidos</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+        </nav>
+    </header>
+    <!--Header ends here-->
+    <br>
+    <br>
+    <!--Main content starts here-->
+    <div class="container">
+        <main>
+            <h1>Pedidos:</h1>
+
+            <!-- Seção Hoje -->
+            <div class="toggle-container">
+                <h2>Hoje (23/10):</h2>
+                <button class="toggle-button" onclick="toggleSection('hoje', this)">
+                    <span class="toggle-icon">&#9650;</span>
+                </button>
+            </div>
+            <div id="hoje">
+                <div class="pedido" data-status="em-analise">
+                    <div class="info">
+                        <span>Pedido #: 12564878</span>
+                    </div>
+                    <div class="detalhes">
+                        <span class="dh">Data: 08/09/2024<br>Horário: 15:34</span>
+                        <button onclick="redirecionar('encerrarpedido.html')">Ver Detalhes</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção Amanhã -->
+            <div class="toggle-container">
+                <h2>Amanhã (24/10):</h2>
+                <button class="toggle-button" onclick="toggleSection('amanha', this)">
+                    <span class="toggle-icon">&#9650;</span>
+                </button>
+            </div>
+            <div id="amanha">
+                <div class="pedido" data-status="confirmado">
+                    <div class="info">
+                        <span>Pedido #: 12564880</span>
+                    </div>
+                    <div class="detalhes">
+                        <span class="dh">Data: 10/09/2024<br>Horário: 16:11</span>
+                        <button onclick="redirecionar('encerrarpedido.html')">Ver Detalhes</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção Sexta-feira -->
+            <div class="toggle-container">
+                <h2>Sexta-feira (26/10):</h2>
+                <button class="toggle-button" onclick="toggleSection('sexta', this)">
+                    <span class="toggle-icon">&#9650;</span>
+                </button>
+            </div>
+            <div id="sexta">
+                <div class="pedido" data-status="negado">
+                    <div class="info">
+                        <span>Pedido #: 12564881</span>
+                    </div>
+                    <div class="detalhes">
+                        <span class="dh">Data: 12/10/2024<br>Horário: 19:55</span>
+                        <button onclick="redirecionar('encerrarpedido.html')">Ver Detalhes</button>
+                    </div>
+                </div>
+                <div class="pedido" data-status="entregue">
+                    <div class="info">
+                        <span>Pedido #: 12564882</span>
+                    </div>
+                    <div class="detalhes">
+                        <span class="dh">Data: 18/10/2024<br>Horário: 09:12</span>
+                        <button onclick="redirecionar('encerrarpedido.html')">Ver Detalhes</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <!--Main content ends here-->
+
+    <!-- Footer -->
+    <footer class="blog-footer">
+        <p>Site Desenvolvido por CtrlJava</p>
+        <p>
+            <a href="#">Voltar ao topo</a>
+        </p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <script>
+        function redirecionar(url) {
+            window.location.href = url;
+        }
+
+        function toggleSection(sectionId, button) {
+            const section = document.getElementById(sectionId);
+            const icon = button.querySelector(".toggle-icon");
+
+            // Alternar visibilidade
+            if (section.classList.contains('hidden')) {
+                section.classList.remove('hidden');
+                icon.innerHTML = "&#9650;"; // Seta para cima
+            } else {
+                section.classList.add('hidden');
+                icon.innerHTML = "&#9660;"; // Seta para baixo
+            }
+        }
+    </script>
+</body>
+
+</html>
