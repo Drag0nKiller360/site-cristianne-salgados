@@ -15,11 +15,11 @@
 </head>
 
 <body>
-  <script src="../js/pedidos.js" defer></script>
+  <script src="../js/confirmarpedido.js" defer></script>
 
   <!--Header starts here-->
   <header>
-    <nav class="navbar bg-body-tertiary fixed-top">
+    <nav id="cabecalho" class="navbar bg-body-tertiary fixed-top">
       <div class="container-fluid">
         <h1>Crissal</h1>
         <div class="search-bar">
@@ -106,12 +106,56 @@
   </div>
 
   <div class="buttons">
-    <button class="confirmar">Confirmar Pedido</button>
-    <button class="negar">Negar Pedido</button>
+    <button class="confirmar" onclick="openPopup('confirmar-pedido')">Confirmar Pedido</button>
+    <button class="negar" onclick="openPopup('negar-pedido')">Negar Pedido</button>
   </div>
   <br>
   <br>
   <!--Main content ends here-->
+
+  <!--CONFIRMAR-PEDIDO-POPUP-->
+    <div class="confirmar-pedido-background">
+        <div class="confirmar-pedido" data-target="p-1">
+            <span class="fechar" onclick="closePopup('confirmar-pedido')">&times;</span>
+
+            <h1 class="titulo-popup">Pedido Confirmado!</h1>
+            <p class="subtitulo-popup">O PEDIDO FOI MOVIDO PARA ÁREA DE PEDIDOS APROVADOS</p>
+
+            <button type="submit" class="confirmar-pedido-button" onclick="redirecionar('novospedidos.html')">VOLTAR AO MENU</button>
+        </div>
+    </div>
+    <!--FIM-CONFIRMAR-PEDIDO-POPUP-->
+
+    <!--NEGAR-PEDIDO-POPUP-->
+    <div class="negar-pedido-background">
+        <div class="negar-pedido" data-target="p-1">
+            <span class="fechar" onclick="closePopup('negar-pedido')">&times;</span>
+
+            <h1 class="titulo-popup">Realmente Deseja Negar o Pedido?</h1>
+            <p class="subtitulo-popup">VOCÊ SERÁ REDIRECIONADO PARA A TELA DE JUSTIFICATIVA</p>
+
+            <button type="submit" class="negar-pedido-button" onclick="closePopup('negar-pedido'), openPopup('justificativa')">CANCELAR PEDIDO</button>
+        </div>
+    </div>
+    <!--FIM-NEGAR-PEDIDO-POPUP-->
+
+    <!--JUSTIFICATIVA-POPUP-->
+  <div class="justificativa-background">
+    <div class="justificativa" data-target="p-1">
+        <span class="fechar" onclick="closePopup('justificativa')">&times;</span>
+
+        <h1 class="titulo-popup">Por Qual Motivo Este Pedido Foi Cancelado?</h1>
+        <p class="subtitulo-popup">ESSA JUSTIFICATIVA SERÁ ENVIADA AUTOMATICAMENTE PARA O EMAIL DO CLIENTE</p>
+
+        <textarea class="form-control" id="texto-justificativa-popup" rows="5"></textarea>
+
+        <div class="d-flex justify-content-around">
+            <button type="submit" class="justificativa-cancelar-button" onclick="alerta('O pedido foi cancelado!'), redirecionar('novospedidos.html')">ENVIAR JUSTIFICATIVA</button>
+            <button type="submit" class="justificativa-voltar-button" onclick="closePopup('justificativa'), openPopup('negar-pedido')">VOLTAR</button>
+        </div>
+    </div>
+  </div>
+  <!--FIM-JUSTIFICATIVA-POPUP-->
 
   <!-- Footer -->
 

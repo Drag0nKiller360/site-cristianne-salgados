@@ -44,7 +44,6 @@ function editarCard() {
             const nome = event.target.closest('.card').querySelector('h5');
             const preco = event.target.closest('.card').querySelector('.preco');
             var tipo_marcado = event.target.closest('.card').querySelector('#produtos h5[data-tipo]');
-            console.log(tipo_marcado);
     
             document.querySelector('.produto-editar-background').style.display = 'block';
             document.querySelector('.produto-editar img').src = img.getAttribute('src');

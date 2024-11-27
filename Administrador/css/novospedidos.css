@@ -165,4 +165,196 @@
   .blog-footer p:last-child {
     margin-bottom: 0;
   }
+
+  /*Confirmar-Pedido-PopUp, Negar-Pedido-PopUp, Entregar-Pedido-PopUp e Cancelar-Pedido-PopUp*/
+.confirmar-pedido-background, .negar-pedido-background, .entregar-pedido-background, .cancelar-pedido-background {
+  position: fixed;
+  top: 0; 
+  left: 0;
+  background: rgba(0,0,0,.9);
+  height:100%;
+  width:100%;
+  z-index:100%;
+  display:none;
+}
+
+.confirmar-pedido, .negar-pedido, .entregar-pedido, .cancelar-pedido{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 24em;
+  transform: translate(-50%, -50%);
+  border:5px solid #fff;
+  object-fit: cover;
+  background-color: #fff;;
+  margin-top: 2em;
+  padding: .5em;
+  border-radius: 2em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+ 
+  text-align: center;
+  justify-content:center;
+  align-items: center;
+}
+
+.confirmar-pedido-button, .entregar-pedido-button{
+  background-color: #83d95a;
+  color: #060D0F;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  width: 70%;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: background-color 0.3s;
+}
+
+.confirmar-pedido-button:hover, .entregar-pedido-button:hover{
+  background-color: #6bb847;
+}
+
+.negar-pedido-button, .cancelar-pedido-button{
+  background-color: #EC5A5A;
+  color: #060D0F;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  width: 70%;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: background-color 0.3s;
+}
+
+.negar-pedido-button:hover, .cancelar-pedido-button:hover{
+  background-color: #bb3535;
+}
+/*Fim Confirmar-Pedido-Popup, Nega-Pedido-Popup, Entregar-Pedido-PopUp e Cancelar-Pedido-PopUp*/
   
+/*Justificativa-PopUp*/
+.justificativa-background{
+  position: fixed;
+  top: 0; 
+  left: 0;
+  background: rgba(0,0,0,.9);
+  height:100%;
+  width:100%;
+  z-index:100%;
+  display:none;
+}
+
+.justificativa{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30em;
+  transform: translate(-50%, -50%);
+  border:5px solid #fff;
+  object-fit: cover;
+  background-color: #fff;;
+  margin-top: 2em;
+  padding: .5em;
+  border-radius: 2em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+ 
+  text-align: center;
+  justify-content:center;
+  align-items: center;
+}
+
+.justificativa textarea{
+  width: 80%;
+  margin-top: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  resize: none;
+}
+
+#texto-justificativa-popup{
+  outline: none;
+}
+
+.justificativa-cancelar-button{
+  background-color: #83d95a;
+  color: #060D0F;
+  font-size: 13px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  width: 40%;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: background-color 0.3s;
+}
+
+.justificativa-cancelar-button:hover{
+  background-color: #6bb847;
+}
+
+.justificativa-voltar-button{
+  background-color: #EC5A5A;
+  color: #060D0F;
+  font-size: 13px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  width: 30%;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: background-color 0.3s;
+}
+
+.justificativa-voltar-button:hover{
+  background-color: #bb3535;
+}
+/*Fim Justificativa-Popup*/
+
+.fechar{
+  position: absolute;
+  top: 0px; right: 20px;
+  font-size: 30px;
+  font-weight: bolder;
+  color: #383838;
+  cursor:pointer;
+  z-index: 100;
+}
+
+.titulo-popup{
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  margin-top: 20px;
+  color: #14433D;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+.subtitulo-popup{
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 14px;
+  font-weight: bold;
+  color: #000;
+  display: block;
+  margin-bottom: 5px;
+}
