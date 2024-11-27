@@ -106,7 +106,6 @@ function adicionarItem() {
     const novo_preco_total = valor + preco_total_num;
 
     div2.className = "order-item d-flex justify-content-between align-items-center mb-2";
-    div2.id = "teste";
     div2.style.padding = "5px";
     div2.innerHTML =
         `
