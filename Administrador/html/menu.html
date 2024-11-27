@@ -149,7 +149,8 @@
     <div class="produto-editar-background">
         <div class="produto-editar" data-target="p-1">
             <span class="fechar" onclick="closePopup('produto-editar')">&times;</span>
-            <img src="../imgs/salgados/coxinha.jpeg" alt="">
+            <img style="display: none;" src="../imgs/salgados/coxinha.jpeg" alt="">
+            
 
             <label>Nome do Produto:</label>
             <input type="text" class="form-control nome-item">
@@ -157,12 +158,27 @@
             <label>Preço do Produto:</label>
             <input type="text" class="form-control preco-item">
 
+            <label>Classe do produto:</label>
+            <div class="opcoes">
+                <label>
+                    <input type="radio" name="opcao" value="forno"> FORNO
+                </label>
+                <label>
+                    <input type="radio" name="opcao" value="fritos"> FRITO
+                </label>
+                <label>
+                    <input type="radio" name="opcao" value="outros"> OUTROS
+                </label><br>
+            </div>
+
+            <label for="nova_imagem">Imagem do Produto:</label>
+            <input type="file" id="nova_imagem" accept="image/*"><br><br>
+
             <div class="buttons-preview">
-                <button onclick="editarProduto()">SALVAR</button>
+                <button onclick="editarProduto()">SALVAR ALTERAÇÕES</button>
             </div>
 
             <p class="nome_original" style="display:none;"></p>
-            <p class="preco_original" style="display:none;"></p>
         </div>
     </div>
 

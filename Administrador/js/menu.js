@@ -2,49 +2,55 @@
 window.onload = check;
 function check() {
     document.getElementById("todos").checked = true;
+    ativarFiltro();
+    editarCard();
 }
 
-var tds = document.querySelectorAll('#produtos h5[data-tipo]');
+//Função pra ativar Filtro
+function ativarFiltro(){
+    var tds = document.querySelectorAll('#produtos h5[data-tipo]');
 document.querySelector('.btn-group').addEventListener('click', function (e) {
-    var tipo = e.target.id;
+        var tipo = e.target.id;
 
-    if (tipo != 'container-filtros' && tipo != 'btn-revisar' && tipo != 'btn-remover') {
-        for (var i = 0; i < tds.length; i++) {
+        if (tipo != 'container-filtros' && tipo != 'btn-revisar' && tipo != 'btn-remover') {
+            for (var i = 0; i < tds.length; i++) {
 
-            var tr = tds[i].closest('.col-md-4');
+                var tr = tds[i].closest('.col-md-4');
 
-            if (tipo != 'todos') {
-                tr.style.display = tipo == tds[i].dataset.tipo || !tipo ? '' : 'none';
-            } else {
-                tr.style.display = '';
+                if (tipo != 'todos') {
+                    tr.style.display = tipo == tds[i].dataset.tipo || !tipo ? '' : 'none';
+                } else {
+                    tr.style.display = '';
+                }
             }
         }
-    }
-});
+    });
+}
+
 
 
 //Função pra editar card
-document.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('click', function (event) {
-        const img = event.target.closest('.card').querySelector('img');
-        const nome = event.target.closest('.card').querySelector('h5');
-        const preco = event.target.closest('.card').querySelector('.preco');
-
-        document.querySelector('.produto-editar-background').style.display = 'block';
-        document.querySelector('.produto-editar img').src = img.getAttribute('src');
-        document.querySelector('.produto-editar .nome-item').value = nome.textContent;
-        document.querySelector('.produto-editar .preco-item').value = preco.textContent;
-
-        const nome_original = document.querySelector(".nome_original");
-        const preco_original = document.querySelector(".preco_original");
-        nome_original.textContent = nome.textContent;
-        preco_original.textContent = preco.textContent;
-
-        const cabecalho = document.getElementById("cabecalho");
-        cabecalho.className = "navbar bg-body-tertiary";
-
-    });
-})
+function editarCard() {
+    document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('click', function (event) {
+            const img = event.target.closest('.card').querySelector('img');
+            const nome = event.target.closest('.card').querySelector('h5');
+            const preco = event.target.closest('.card').querySelector('.preco');
+    
+            document.querySelector('.produto-editar-background').style.display = 'block';
+            document.querySelector('.produto-editar img').src = img.getAttribute('src');
+            document.querySelector('.produto-editar .nome-item').value = nome.textContent;
+            document.querySelector('.produto-editar .preco-item').value = preco.textContent;
+    
+            const nome_original = document.querySelector(".nome_original");
+            nome_original.textContent = nome.textContent;
+    
+            const cabecalho = document.getElementById("cabecalho");
+            cabecalho.className = "navbar bg-body-tertiary";
+    
+        });
+    })
+}
 
 // Função para redirecionar para outra página
 function redirecionar(pagina) {
@@ -121,6 +127,8 @@ function adicionarNovoProduto() {
     radios.forEach(radio => {
         radio.checked = false;
     });
+    
+    check();
 }
 
 function removerProduto() {
@@ -165,20 +173,36 @@ function removerProduto() {
 function editarProduto(){
     const produtoNomeOriginal = document.querySelector('.produto-editar .nome_original').textContent;
     let novoNome = document.querySelector('.produto-editar .nome-item').value;
-
-    const produtoPrecoOriginal = document.querySelector('.produto-editar .preco_original').textContent;
     let novoPreco = document.querySelector('.produto-editar .preco-item').value;
 
+    const radios = document.querySelectorAll('input[name="opcao"]');
+    let valorSelecionado;
+    
+    for (const radio of radios) {
+      if (radio.checked) {
+        valorSelecionado = radio.value;
+        break;
+      }
+    }
+    
+    const imagemProduto = document.getElementById("nova_imagem").files[0];
+    
+    let imagemURL = document.querySelector('.produto-editar img').src;
+
+    if (imagemProduto) {
+        imagemURL = URL.createObjectURL(imagemProduto);
+    }
 
     const produtos = document.querySelectorAll('.card-title');
 
     produtos.forEach((produto) => {
-        // Compara o nome do produto com o valor digitado no formulário
         if (produto.textContent === produtoNomeOriginal) {
-            // Encontra o card pai do produto e o remove
             const card = produto.closest('.col-md-4');
             card.querySelector('h5').textContent = novoNome;
             card.querySelector('span').textContent = novoPreco;
+            card.querySelector('h5').setAttribute('data-tipo', valorSelecionado);
+            card.querySelector('.card img').src = imagemURL;
+            card.querySelector('.card img').alt = novoNome;
         }
     });
 

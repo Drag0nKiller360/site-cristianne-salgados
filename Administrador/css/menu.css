@@ -313,15 +313,14 @@ h4{
     z-index: 100;
 }
 
-.produto-editar #preco_item{
-    font-size: 2em;
+.produto-editar .preco-item, .produto-editar .nome-item{
+    font-size: 14px;
 }
 
 .buttons-preview button{
     border-radius: 15px;
     border: none;
     font-weight: bold;
-    margin-top: 1em;;
     background-color: #84C93D;
     padding-top: .8em;
     padding-bottom: .8em;
@@ -398,6 +397,11 @@ h4{
 .produto-editar img{
     width:95%;
 }
+}
+
+.produto-editar img{
+  width:40%;
+  border-radius: 1em;
 }
 
 .produto-adicionar label{
