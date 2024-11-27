@@ -36,9 +36,7 @@ document.querySelectorAll('.card').forEach(card => {
         document.querySelector('.produto-editar .preco-item').value = preco.textContent;
 
         const nome_original = document.querySelector(".nome_original");
-        const preco_original = document.querySelector(".preco_original");
         nome_original.textContent = nome.textContent;
-        preco_original.textContent = preco.textContent;
 
         const cabecalho = document.getElementById("cabecalho");
         cabecalho.className = "navbar bg-body-tertiary";
@@ -165,10 +163,27 @@ function removerProduto() {
 function editarProduto(){
     const produtoNomeOriginal = document.querySelector('.produto-editar .nome_original').textContent;
     let novoNome = document.querySelector('.produto-editar .nome-item').value;
-
-    const produtoPrecoOriginal = document.querySelector('.produto-editar .preco_original').textContent;
     let novoPreco = document.querySelector('.produto-editar .preco-item').value;
 
+    const radios = document.querySelectorAll('input[name="opcao"]');
+    let valorSelecionado;
+    
+    for (const radio of radios) {
+      if (radio.checked) {
+        valorSelecionado = radio.value;
+        break;
+      }
+    }
+    
+    const imagemProduto = document.getElementById("nova_imagem").files[0];
+    
+    // Verificar se o usuário escolheu um arquivo
+    let imagemURL = document.querySelector('.produto-editar img').src;
+
+    if (imagemProduto) {
+        // Cria uma URL temporária para o arquivo da imagem
+        imagemURL = URL.createObjectURL(imagemProduto);
+    }
 
     const produtos = document.querySelectorAll('.card-title');
 
@@ -179,6 +194,9 @@ function editarProduto(){
             const card = produto.closest('.col-md-4');
             card.querySelector('h5').textContent = novoNome;
             card.querySelector('span').textContent = novoPreco;
+            card.querySelector('h5').setAttribute('data-tipo', valorSelecionado);
+            card.querySelector('.card img').src = imagemURL;
+            card.querySelector('.card img').alt = novoNome;
         }
     });
 
