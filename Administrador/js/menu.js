@@ -2,8 +2,17 @@
 window.onload = check;
 function check() {
     document.getElementById("todos").checked = true;
-    ativarFiltro();
     editarCard();
+    ativarFiltro();
+    
+    var tds = document.querySelectorAll('#produtos h5[data-tipo]');
+    for (var i = 0; i < tds.length; i++) {
+        var tr = tds[i].closest('.col-md-4');
+        tr.style.display = '';
+    }
+
+    const cabecalho = document.getElementById("cabecalho");
+    cabecalho.className = "navbar bg-body-tertiary fixed-top";
 }
 
 //Função pra ativar Filtro
@@ -27,8 +36,6 @@ document.querySelector('.btn-group').addEventListener('click', function (e) {
     });
 }
 
-
-
 //Função pra editar card
 function editarCard() {
     document.querySelectorAll('.card').forEach(card => {
@@ -36,11 +43,14 @@ function editarCard() {
             const img = event.target.closest('.card').querySelector('img');
             const nome = event.target.closest('.card').querySelector('h5');
             const preco = event.target.closest('.card').querySelector('.preco');
+            var tipo_marcado = event.target.closest('.card').querySelector('#produtos h5[data-tipo]');
+            console.log(tipo_marcado);
     
             document.querySelector('.produto-editar-background').style.display = 'block';
             document.querySelector('.produto-editar img').src = img.getAttribute('src');
             document.querySelector('.produto-editar .nome-item').value = nome.textContent;
-            document.querySelector('.produto-editar .preco-item').value = preco.textContent;
+            document.querySelector('.produto-editar .preco-item').value = preco.textContent;        
+            document.querySelector(`.produto-editar .${tipo_marcado.dataset.tipo}`).checked = true;
     
             const nome_original = document.querySelector(".nome_original");
             nome_original.textContent = nome.textContent;
@@ -89,7 +99,7 @@ function adicionarNovoProduto() {
     let nome = document.getElementById("nome_produto").value;
     let preco = document.getElementById("preco_produto").value;
 
-    const radios = document.querySelectorAll('input[name="opcao"]');
+    const radios = document.querySelectorAll('input[name="opcao2"]');
     let valorSelecionado;
     
     for (const radio of radios) {
@@ -168,6 +178,9 @@ function removerProduto() {
     document.getElementById('produto-remover').value = '';
 
     document.querySelector('.remover-item-background').style.display = 'none';
+
+    const cabecalho = document.getElementById("cabecalho");
+    cabecalho.className = "navbar bg-body-tertiary fixed-top";
 }
 
 function editarProduto(){
@@ -207,4 +220,6 @@ function editarProduto(){
     });
 
     document.querySelector('.produto-editar-background').style.display = 'none';
+
+    check();
 }
