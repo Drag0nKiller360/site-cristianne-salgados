@@ -36,13 +36,13 @@
             <div class="offcanvas-body">
               <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="novospedidos.html">Novos pedidos</a>
+                  <a class="nav-link"  href="novospedidos.html">Novos pedidos</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="menu.html">Menu</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link"  href="pedidos.html">Pedidos</a>
+                  <a class="nav-link active" aria-current="page" href="pedidos.html">Pedidos</a>
                 </li>
               </ul>
             </div>
@@ -121,7 +121,7 @@
         <h1 class="titulo-popup">Pedido Entregue!</h1>
         <p class="subtitulo-popup">O PEDIDO FOI CONCLUÍDO COM SUCESSO E JÁ ESTÁ COM O CLIENTE</p>
 
-        <button type="submit" class="entregar-pedido-button" onclick="redirecionar('novospedidos.html')">VOLTAR AO MENU</button>
+        <button type="submit" class="entregar-pedido-button" onclick="redirecionar('pedidos.html')">VOLTAR</button>
     </div>
   </div>
   <!--FIM-ENTREGAR-PEDIDO-POPUP-->
@@ -150,7 +150,7 @@
         <textarea class="form-control" id="texto-justificativa-popup" rows="5"></textarea>
 
         <div class="d-flex justify-content-around">
-            <button type="submit" class="justificativa-cancelar-button" onclick="alerta('O pedido foi cancelado!'), redirecionar('novospedidos.html')">ENVIAR JUSTIFICATIVA</button>
+            <button type="submit" class="justificativa-cancelar-button" onclick="alerta('O pedido foi cancelado!'), redirecionar('pedidos.html')">ENVIAR JUSTIFICATIVA</button>
             <button type="submit" class="justificativa-voltar-button" onclick="closePopup('justificativa'), openPopup('cancelar-pedido')">VOLTAR</button>
         </div>
     </div>

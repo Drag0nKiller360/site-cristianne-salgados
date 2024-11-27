@@ -121,7 +121,7 @@
             <h1 class="titulo-popup">Pedido Confirmado!</h1>
             <p class="subtitulo-popup">O PEDIDO FOI MOVIDO PARA ÁREA DE PEDIDOS APROVADOS</p>
 
-            <button type="submit" class="confirmar-pedido-button" onclick="redirecionar('novospedidos.html')">VOLTAR AO MENU</button>
+            <button type="submit" class="confirmar-pedido-button" onclick="redirecionar('pedidos.html')">VOLTAR</button>
         </div>
     </div>
     <!--FIM-CONFIRMAR-PEDIDO-POPUP-->
@@ -150,7 +150,7 @@
         <textarea class="form-control" id="texto-justificativa-popup" rows="5"></textarea>
 
         <div class="d-flex justify-content-around">
-            <button type="submit" class="justificativa-cancelar-button" onclick="alerta('O pedido foi cancelado!'), redirecionar('novospedidos.html')">ENVIAR JUSTIFICATIVA</button>
+            <button type="submit" class="justificativa-cancelar-button" onclick="alerta('O pedido foi cancelado!'), redirecionar('pedidos.html')">ENVIAR JUSTIFICATIVA</button>
             <button type="submit" class="justificativa-voltar-button" onclick="closePopup('justificativa'), openPopup('negar-pedido')">VOLTAR</button>
         </div>
     </div>
