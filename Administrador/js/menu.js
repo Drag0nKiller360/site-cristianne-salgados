@@ -188,9 +188,7 @@ function editarProduto(){
     const produtos = document.querySelectorAll('.card-title');
 
     produtos.forEach((produto) => {
-        // Compara o nome do produto com o valor digitado no formulário
         if (produto.textContent === produtoNomeOriginal) {
-            // Encontra o card pai do produto e o remove
             const card = produto.closest('.col-md-4');
             card.querySelector('h5').textContent = novoNome;
             card.querySelector('span').textContent = novoPreco;
