@@ -35,6 +35,11 @@ document.querySelectorAll('.card').forEach(card => {
         document.querySelector('.produto-editar .nome-item').value = nome.textContent;
         document.querySelector('.produto-editar .preco-item').value = preco.textContent;
 
+        const nome_original = document.querySelector(".nome_original");
+        const preco_original = document.querySelector(".preco_original");
+        nome_original.textContent = nome.textContent;
+        preco_original.textContent = preco.textContent;
+
         const cabecalho = document.getElementById("cabecalho");
         cabecalho.className = "navbar bg-body-tertiary";
 
@@ -64,7 +69,118 @@ function closePopup(type) {
 function finalizarPedido(type) {
     document.querySelector(`.agradecimento-background`).style.display = 'block';
     document.querySelector(`.${type}-background`).style.display = 'none';
-    
+
     const cabecalho = document.getElementById("cabecalho");
     cabecalho.className = "navbar bg-body-tertiary";
+}
+
+function adicionarNovoProduto() {
+    document.querySelector('.produto-adicionar-background').style.display = 'none';
+    const div1 = document.getElementById("cardapio");
+    const div2 = document.createElement("div");
+    div2.className = "col-md-4";
+
+    let nome = document.getElementById("nome_produto").value;
+    let preco = document.getElementById("preco_produto").value;
+
+    const radios = document.querySelectorAll('input[name="opcao"]');
+    let valorSelecionado;
+    
+    for (const radio of radios) {
+      if (radio.checked) {
+        valorSelecionado = radio.value;
+        break;
+      }
+    }
+
+    const imagemProduto = document.getElementById("imagem_produto").files[0];
+    
+    // Verificar se o usuário escolheu um arquivo
+    let imagemURL = "../imgs/salgados/sem-imagem.webp";  // Imagem padrão
+
+    if (imagemProduto) {
+        // Cria uma URL temporária para o arquivo da imagem
+        imagemURL = URL.createObjectURL(imagemProduto);
+    }
+
+    div2.innerHTML =
+        `
+        <div class="card">
+            <img src="${imagemURL}" class="card-img-top" alt="${nome}">
+            <div class="card-body text-center">
+                <h5 class="card-title" data-tipo="${valorSelecionado}">${nome}</h5>
+                <h5 class="card-title"><span class="preco">R$ ${preco}</span></h5>
+            </div>
+        </div>
+    `;
+
+    div1.appendChild(div2);
+
+    document.getElementById('nome_produto').value = '';
+    document.getElementById('preco_produto').value = '';
+    radios.forEach(radio => {
+        radio.checked = false;
+    });
+}
+
+function removerProduto() {
+    // Pega o nome do produto digitado pelo usuário
+    const produtoNome = document.getElementById('produto-remover').value.trim().toLowerCase();
+
+    // Verifica se o campo de produto não está vazio
+    if (produtoNome === '') {
+        alert('Por favor, digite o nome do produto.');
+        return;
+    }
+
+    // Encontra todos os elementos <h5> com a classe "card-title", que contêm o nome do produto
+    const produtos = document.querySelectorAll('.card-title');
+
+    let produtoRemovido = false;
+
+    // Percorre todos os elementos de nome do produto
+    produtos.forEach((produto) => {
+        // Compara o nome do produto com o valor digitado no formulário
+        if (produto.textContent.trim().toLowerCase() === produtoNome) {
+            // Encontra o card pai do produto e o remove
+            const card = produto.closest('.col-md-4');
+            card.remove();
+            produtoRemovido = true;
+        }
+    });
+
+    // Se nenhum produto foi removido, exibe uma mensagem de erro
+    if (!produtoRemovido) {
+        alert('Produto não encontrado. Verifique o nome e tente novamente.');
+    } else {
+        alert('Produto removido com sucesso!');
+    }
+
+    // Limpa o campo de texto após a remoção
+    document.getElementById('produto-remover').value = '';
+
+    document.querySelector('.remover-item-background').style.display = 'none';
+}
+
+function editarProduto(){
+    const produtoNomeOriginal = document.querySelector('.produto-editar .nome_original').textContent;
+    let novoNome = document.querySelector('.produto-editar .nome-item').value;
+
+    const produtoPrecoOriginal = document.querySelector('.produto-editar .preco_original').textContent;
+    let novoPreco = document.querySelector('.produto-editar .preco-item').value;
+
+
+    const produtos = document.querySelectorAll('.card-title');
+
+    produtos.forEach((produto) => {
+        // Compara o nome do produto com o valor digitado no formulário
+        if (produto.textContent === produtoNomeOriginal) {
+            // Encontra o card pai do produto e o remove
+            const card = produto.closest('.col-md-4');
+            card.querySelector('h5').textContent = novoNome;
+            card.querySelector('span').textContent = novoPreco;
+        }
+    });
+
+    document.querySelector('.produto-editar-background').style.display = 'none';
 }

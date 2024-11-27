@@ -69,7 +69,7 @@
                 <button id="btn-revisar" onclick="openPopup('produto-adicionar')">ADICIONAR ITEM</button>
             </div>
 
-            <div class="row">
+            <div id="cardapio" class="row">
 
                 <!--PRODUTOS-->
                 <div class="col-md-4">
@@ -158,8 +158,11 @@
             <input type="text" class="form-control preco-item">
 
             <div class="buttons-preview">
-                <button>ADICIONAR</button>
+                <button onclick="editarProduto()">SALVAR</button>
             </div>
+
+            <p class="nome_original" style="display:none;"></p>
+            <p class="preco_original" style="display:none;"></p>
         </div>
     </div>
 
@@ -167,16 +170,29 @@
     <div class="produto-adicionar-background">
         <div class="produto-adicionar" data-target="p-1">
             <span class="fechar" onclick="closePopup('produto-adicionar')">&times;</span>
-            <img style="width: 40%" src="../imgs/salgados/sem-imagem.webp" alt="">
 
             <label>Nome do Produto:</label>
-            <input type="text" class="form-control nome-item-adicionar">
+            <input id="nome_produto" type="text" class="form-control nome-item-adicionar">
 
             <label>Preço do Produto:</label>
-            <input type="text" class="form-control preco-item-adicionar">
+            <input id="preco_produto" type="text" class="form-control preco-item-adicionar">
 
+            <label>Classe do produto:</label>
+            <div class="opcoes">
+                <label>
+                    <input type="radio" name="opcao" value="forno"> FORNO
+                </label>
+                <label>
+                    <input type="radio" name="opcao" value="fritos"> FRITO
+                </label>
+                <label>
+                    <input type="radio" name="opcao" value="outros"> OUTROS
+                </label><br>
+            </div>
+            <label for="imagem_produto">Imagem do Produto:</label>
+            <input type="file" id="imagem_produto" accept="image/*" required><br><br>
             <div class="buttons-preview">
-                <button>ADICIONAR</button>
+                <button onclick="adicionarNovoProduto()">ADICIONAR</button>
             </div>
         </div>
     </div>
@@ -230,11 +246,13 @@
     <div class="remover-item-background">
         <div class="remover-item" data-target="p-1">
             <span class="fechar" onclick="closePopup('remover-item')">&times;</span>
-            
-            <h1 class="titulo-popup">Realmente Deseja Remover <span class="qtd-itens">1</span> Item(s)?</h1>
-            <p class="subtitulo-popup">VOCÊ ESTÁ PRESTES A REMOVER UM ITEM DO CARDÁPIO, NOVOS CLIENTES NÃO PODERÃO COMPRAR O QUE FOR REMOVIDO</p>
-            
-            <button type="submit" class="remover-item-button">REMOVER ITENS</button>
+
+            <div id="remover-item-form">
+                <label for="produto-remover">Digite o nome do produto para remover:</label>
+                <input type="text" id="produto-remover" placeholder="Ex: Pastel Tradicional">
+                <button type="button" class="remover-item-button" onclick="removerProduto()">REMOVER PRODUTO</button>
+            </div>
+
         </div>
     </div>
     <!--FIM-REMOVER-ITEM-POPUP-->
@@ -243,10 +261,10 @@
     <div class="confirmar-pedido-background">
         <div class="confirmar-pedido" data-target="p-1">
             <span class="fechar" onclick="closePopup('confirmar-pedido')">&times;</span>
-            
+
             <h1 class="titulo-popup">Pedido Confirmado!</h1>
             <p class="subtitulo-popup">O PEDIDO FOI MOVIDO PARA ÁREA DE PEDIDOS APROVADOS</p>
-            
+
             <button type="submit" class="confirmar-pedido-button">VOLTAR AO MENU</button>
         </div>
     </div>
@@ -256,10 +274,10 @@
     <div class="negar-pedido-background">
         <div class="negar-pedido" data-target="p-1">
             <span class="fechar" onclick="closePopup('negar-pedido')">&times;</span>
-            
+
             <h1 class="titulo-popup">Realmente Deseja Negar o Pedido?</h1>
             <p class="subtitulo-popup">VOCÊ SERÁ REDIRECIONADO PARA A TELA DE JUSTIFICATIVA</p>
-            
+
             <button type="submit" class="negar-pedido-button">CANCELAR PEDIDO</button>
         </div>
     </div>
@@ -269,10 +287,10 @@
     <div class="justificativa-background">
         <div class="justificativa" data-target="p-1">
             <span class="fechar" onclick="closePopup('justificativa')">&times;</span>
-            
+
             <h1 class="titulo-popup">Por Qual Motivo Este Pedido Foi Cancelado?</h1>
             <p class="subtitulo-popup">ESSA JUSTIFICATIVA SERÁ ENVIADA AUTOMATICAMENTE PARA O EMAIL DO CLIENTE</p>
-            
+
             <textarea class="form-control" id="texto-justificativa-popup" rows="5"></textarea>
 
             <div class="d-flex justify-content-around">
@@ -287,10 +305,10 @@
     <div class="entregar-pedido-background">
         <div class="entregar-pedido" data-target="p-1">
             <span class="fechar" onclick="closePopup('entregar-pedido')">&times;</span>
-            
+
             <h1 class="titulo-popup">Pedido Entregue!</h1>
             <p class="subtitulo-popup">O PEDIDO FOI CONCLUÍDO COM SUCESSO E JÁ ESTÁ COM O CLIENTE</p>
-            
+
             <button type="submit" class="entregar-pedido-button">VOLTAR AO MENU</button>
         </div>
     </div>
@@ -300,10 +318,10 @@
     <div class="cancelar-pedido-background">
         <div class="cancelar-pedido" data-target="p-1">
             <span class="fechar" onclick="closePopup('cancelar-pedido')">&times;</span>
-            
+
             <h1 class="titulo-popup">Realmente Deseja Cancelar o Pedido?</h1>
             <p class="subtitulo-popup">O PEDIDO JÁ FOI APROVADO ANTERIORMENTE, CANCELE APENAS SE NECESSÁRIO</p>
-            
+
             <button type="submit" class="cancelar-pedido-button">CANCELAR PEDIDO</button>
         </div>
     </div>
